@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7911,6 +7910,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -7988,7 +7995,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dt</span>
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -8001,7 +8008,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>JPM の内部データはここでは使えません。描画用のデータは自分で作ります。今回は、Russell2k のインプライド・ボラティリティと HYG（iTraxx ハイ・イールド債 ETF）の価格の近似値を作ります。</p>
+<p>JPM の内部データはここでは使えません。描画用のデータは自分で作ります。今回は、Russell2k の<a class="term-link" href="#gloss-implied-volatility">インプライド・ボラティリティ</a>と HYG（iTraxx ハイ・イールド債 <a class="term-link" href="#gloss-etf">ETF</a>）の価格の近似値を作ります。</p>
 </div>
 </div>
 </div>
@@ -8203,7 +8210,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>関係がありそうです。負の相関で生成したので、当然といえば当然です。もう少し調べます。<code>seaborn</code> には統計ツールがそろっています。回帰グラフなら <code>sns.regplot</code> で手早く描けます。</p>
+<p>関係がありそうです。負の<a class="term-link" href="#gloss-correlation">相関</a>で生成したので、当然といえば当然です。もう少し調べます。<code>seaborn</code> には統計ツールがそろっています。<a class="term-link" href="#gloss-regression">回帰</a>グラフなら <code>sns.regplot</code> で手早く描けます。</p>
 </div>
 </div>
 </div>
@@ -8306,7 +8313,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>2次元グラフもよいですが、3次元も見てみます。ボラティリティ・サーフェスを一から描く例です。</p>
+<p>2次元グラフもよいですが、3次元も見てみます。<a class="term-link" href="#gloss-vol-surface">ボラティリティ・サーフェス</a>を一から描く例です。</p>
 </div>
 </div>
 </div>
@@ -8320,7 +8327,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <p><strong>補足（日本語版独自の解説）: 次のセルの大きな配列について</strong></p>
 <p>次のセルでは、説明なしに大きな数値配列が3つ出てきます。サーフェスの材料で、対応は次のとおりです。</p>
 <ul>
-<li><code>c</code>: マネーネス（行使価格 ÷ 原資産価格）の列。0.8023〜1.2093 の36点。1.0 がアット・ザ・マネー（行使価格と原資産価格が等しい状態）です</li>
+<li><code>c</code>: <a class="term-link" href="#gloss-moneyness">マネーネス</a>（行使価格 ÷ 原資産価格）の列。0.8023〜1.2093 の36点。1.0 がアット・ザ・マネー（行使価格と原資産価格が等しい状態）です</li>
 <li><code>i</code>: 満期の列。2019年8月2日から2020年6月19日までの15時点</li>
 <li><code>d</code>: インプライド・ボラティリティの行列（15行×36列）。行が満期、列がマネーネスに対応します</li>
 </ul>
@@ -8433,5 +8440,5 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 </div>
 </main>
-</main><div class="pager"><a class="pager-btn prev" href="6_financial_data.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">6. 金融データの利用</span></a><a class="pager-btn next" href="8_altman_z_double_prime.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-implied-volatility">インプライド・ボラティリティ</dt><dd>オプションの市場価格から逆算される、原資産の将来の変動率。市場参加者の見込みを映す指標です。</dd><dt id="gloss-vol-surface">ボラティリティ・サーフェス</dt><dd>インプライド・ボラティリティを、満期とマネーネスの2軸で並べて面として表したもの。オプション市場の歪みが形に現れます。</dd><dt id="gloss-moneyness">マネーネス</dt><dd>行使価格と原資産価格の関係を表す度合い。比率が1なら両者が等しい状態（アット・ザ・マネー）です。</dd><dt id="gloss-correlation">相関</dt><dd>2つの系列が一緒に動く度合い。1に近いほど同じ向きに、−1に近いほど逆向きに動きます。</dd><dt id="gloss-regression">回帰</dt><dd>ある変数を別の変数で説明する直線（式）を、データから求める手法。</dd><dt id="gloss-etf">ETF</dt><dd>取引所に上場している投資信託。指数などに連動し、株式と同じように売買できます。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="6_financial_data.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">6. 金融データの利用</span></a><a class="pager-btn next" href="8_altman_z_double_prime.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

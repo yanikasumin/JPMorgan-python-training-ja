@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7911,6 +7910,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -8421,7 +8428,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>見てのとおり、返ってくるデータはいつもきれいとは限りません。HTML を解析するより API のほうが楽なのは、このためです。</p>
+<p>見てのとおり、返ってくるデータはいつもきれいとは限りません。<a class="term-link" href="#gloss-html">HTML</a> を解析するより API のほうが楽なのは、このためです。</p>
 <p>とはいえ、この手順を関数にまとめれば、かなり楽になります。</p>
 </div>
 </div>
@@ -9745,5 +9752,5 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 </div>
 </main>
-</main><div class="pager"><a class="pager-btn prev" href="4_webapi.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">4. Web API からのデータ取得</span></a><a class="pager-btn next" href="6_financial_data.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">6. 金融データの利用</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-html">HTML</dt><dd>Web ページの構造を記述する言語。タグで見出しや表などの部品を表します。</dd><dt id="gloss-scraping">スクレイピング</dt><dd>Web ページを取得し、必要な情報だけを機械的に抜き出すこと。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="4_webapi.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">4. Web API からのデータ取得</span></a><a class="pager-btn next" href="6_financial_data.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">6. 金融データの利用</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7911,6 +7910,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -7956,10 +7963,10 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>アルトマン教授が「Zスコア」を定式化したのは、NYU 在籍中の <a href="http://www.defaultrisk.com/_pdf6j4/Financial_Ratios_Discriminant_Anlss_n_Prdctn_o_Crprt_Bnkrptc.pdf">1968年</a> です。Zスコアは、企業がデフォルトする可能性を数値で表す指標です。</p>
+<p>アルトマン教授が「Zスコア」を定式化したのは、NYU 在籍中の <a href="http://www.defaultrisk.com/_pdf6j4/Financial_Ratios_Discriminant_Anlss_n_Prdctn_o_Crprt_Bnkrptc.pdf">1968年</a> です。Zスコアは、企業が<a class="term-link" href="#gloss-default">デフォルト</a>する可能性を数値で表す指標です。</p>
 <p>その後、何度か改良がありました。企業の信用リスクをよりよく表すため、アルトマンZスコア（ダブルプライム）が生まれました。このモデルは、<a href="http://pages.stern.nyu.edu/~ealtman/3-%20CopCrScoringModels.pdf">アルトマン教授のプレゼンテーション資料</a> でも解説されています。</p>
 <p>当初の目安は大まかなものでした。2.6 を超えれば「健全」。1.1〜2.6 は「グレーゾーン」。1.1 未満は倒産のリスクあり、という分け方です。その後、判定基準はさらに細かく見直されました。</p>
-<p>今の Zスコア（ダブルプライム）には、もう1つ特徴があります。通常の信用格付けに対応づけられることです。</p>
+<p>今の Zスコア（ダブルプライム）には、もう1つ特徴があります。通常の<a class="term-link" href="#gloss-credit-rating">信用格付け</a>に対応づけられることです。</p>
 <p>以下では、<a href="https://www.alphavantage.co/documentation/#fundamentals">Alpha Vantage のデータ</a> を使って、スコアを一から計算します。元の例では IEX Cloud API を使っていましたが、2024年8月にサービスが終了しました。</p>
 </div>
 </div>
@@ -7973,8 +7980,8 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>$$ Z” = 6.56x_1 +3.26x_2 + 6.72x_3 + 1.05x_4 $$
 $$ \textrm{ここで:} $$
-$$ x_1 = \textrm{運転資本 / 総資産} $$
-$$ x_2 = \textrm{利益剰余金 / 総資産} $$
+$$ x_1 = \textrm{<a class="term-link" href="#gloss-working-capital">運転資本</a> / 総資産} $$
+$$ x_2 = \textrm{<a class="term-link" href="#gloss-retained-earnings">利益剰余金</a> / 総資産} $$
 $$ x_3 = \textrm{EBIT（利払前・税引前利益）/ 総資産} $$
 $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
@@ -7990,7 +7997,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <p><strong>補足（日本語版独自の解説）: このあとのコードの進み方</strong></p>
 <p>式だけでは計算の流れが分からないので、先に全体像を書いておきます。</p>
 <ol>
-<li>Alpha Vantage の API から、IBM の損益計算書・貸借対照表・時価総額を取得する</li>
+<li>Alpha Vantage の API から、IBM の損益計算書・貸借対照表・<a class="term-link" href="#gloss-market-cap">時価総額</a>を取得する</li>
 <li>財務の数値を、上の式の $x_1$〜$x_4$ に当てはめる</li>
 <li>係数（6.56、3.26、6.72、1.05）を掛けて合計し、Z'' を出す</li>
 <li>計算を関数にまとめ、最後に Z'' から通常の信用格付けへの換算も行う</li>
@@ -8003,7 +8010,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -8039,7 +8046,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ticker</span> <span class="o">=</span> <span class="s2">"IBM"</span>  <span class="c1"># demo キーで実データが返るのは IBM のみ。他のティッカーは自分のキーで</span>
@@ -8056,7 +8063,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalCurrentAssets"</span><span class="p">])</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalCurrentLiabilities"</span><span class="p">])</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalAssets"</span><span class="p">])</span>
@@ -8070,7 +8077,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"retainedEarnings"</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalAssets"</span><span class="p">])</span>
@@ -8084,7 +8091,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">incomeStatement</span><span class="p">[</span><span class="s2">"ebit"</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalAssets"</span><span class="p">])</span>
@@ -8098,7 +8105,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">x4</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">"MarketCapitalization"</span><span class="p">])</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">balanceSheet</span><span class="p">[</span><span class="s2">"totalLiabilities"</span><span class="p">])</span>
@@ -8107,12 +8114,12 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="mf">6.56</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="mf">3.26</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="mf">6.72</span> <span class="o">*</span> <span class="n">x3</span> <span class="o">+</span> <span class="mf">1.05</span> <span class="o">*</span> <span class="n">x4</span>
@@ -8121,12 +8128,24 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>5.812582061871934</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">altmanZDoublePrime</span><span class="p">(</span> <span class="n">ticker</span> <span class="p">):</span>
@@ -8151,16 +8170,165 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">altmanZDoublePrime</span><span class="p">(</span><span class="s2">"IBM"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>5.812582061871934</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>追加実装（日本語版独自）: 計算の内訳を見る</strong></p>
+<p>Z'' の数値だけでは、どの要素が効いているのか分かりません。上の $x_1$〜$x_4$ を使って、寄与の内訳を表にします。</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">components</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"値"</span><span class="p">:</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x4</span><span class="p">],</span>
+        <span class="s2">"係数"</span><span class="p">:</span> <span class="p">[</span><span class="mf">6.56</span><span class="p">,</span> <span class="mf">3.26</span><span class="p">,</span> <span class="mf">6.72</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">"x1 運転資本 / 総資産"</span><span class="p">,</span>
+        <span class="s2">"x2 利益剰余金 / 総資産"</span><span class="p">,</span>
+        <span class="s2">"x3 EBIT / 総資産"</span><span class="p">,</span>
+        <span class="s2">"x4 株式時価総額 / 負債総額"</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">components</span><span class="p">[</span><span class="s2">"寄与"</span><span class="p">]</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="s2">"値"</span><span class="p">]</span> <span class="o">*</span> <span class="n">components</span><span class="p">[</span><span class="s2">"係数"</span><span class="p">]</span>
+<span class="n">components</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>値</th>
+<th>係数</th>
+<th>寄与</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>x1 運転資本 / 総資産</th>
+<td>-0.018422</td>
+<td>6.56</td>
+<td>-0.120851</td>
+</tr>
+<tr>
+<th>x2 利益剰余金 / 総資産</th>
+<td>1.024809</td>
+<td>3.26</td>
+<td>3.340878</td>
+</tr>
+<tr>
+<th>x3 EBIT / 総資産</th>
+<td>0.080741</td>
+<td>6.72</td>
+<td>0.542582</td>
+</tr>
+<tr>
+<th>x4 株式時価総額 / 負債総額</th>
+<td>1.952356</td>
+<td>1.05</td>
+<td>2.049974</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">components</span><span class="p">[</span><span class="s2">"寄与"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"barh"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">"x1"</span><span class="p">,</span> <span class="s2">"x2"</span><span class="p">,</span> <span class="s2">"x3"</span><span class="p">,</span> <span class="s2">"x4"</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Contribution to Z''"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjExLjIsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvgI3uAAAAAAlwSFlzAAAPYQAAD2EBqD+naQAAKNlJREFUeJzt3Xmc1XW9+PH34OCAOjMiAqM4AkKKC2Eay/0hV1tECLqpDzcWu2bhVmYuxNUebt1bWG6ZmkaUuZAUuKPmUllgKpAoIrlgiix2RRkYURiF+fz+8HIeDQybM8wAn+fz8ZjHw/M93+V9vh7gNWfO90xRSikFAADZaNHcAwAA0LQEIABAZgQgAEBmBCAAQGYEIABAZgQgAEBmBCAAQGYEIABAZgQgAEBmBCAAQGYEIABAZgQgAEBmBCAAQGaKm3uATVFbWxuLFi2K0tLSKCoqau5xAAC2mJRSvPfee7HnnntGixZb5rW6bSIAFy1aFJWVlc09BgBAk5k/f37stddeW2Tf20QAlpaWRsTHJ6KsrKyZp9m46urqqKys3GbmBQC2Hms6Yk3/bAnbRACu+bFvWVnZNhVU29q8AMDWY0u+7c1FIAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmSlu7gG2Zwdd+ki0KNmpuccAaLA3rhjc3CMAjcgrgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZEYAAAJkRgAAAmRGAAACZadIAHD9+fFRUVMTIkSOb8rAAAPyLJgvAuXPnxn/9139Fhw4doqqqqqkOCwDAWhoUgIsXL479998/brzxxsKy1157LTp37hyTJk0qLPvwww/jxBNPjB/96EdRWVnZkEMCANBADQrAdu3axWWXXRYXXHBBzJ49O1atWhXDhw+Pz3zmM3HccccV1vvud78b3bt3j2HDhjV4YAAAGqa4oTs48cQT46GHHoqhQ4fGwIED480334wHH3ywcP+DDz4Y9957bzz//PObvM+ampqoqakp3K6urm7omAAA/J9GeQ/gDTfcEO+//35cffXVceutt0bbtm0jIuKtt96KU089NW677bYoLy/f5P2NGTMmysvLC19+bAwA0Hga/ApgRMSyZcti6dKlERGxatWqwvJnnnkm3n333TjhhBMKy9asV1FREdOnT6837i688MI477zzCrerq6tFIABAI2lwANbW1sbJJ58cffr0iV69esXXvva1eOGFF6Jdu3YxaNCgWLBgQZ31Tz755GjVqlX84he/iHbt2tW7z5KSkigpKWnoaAAA1KPBAXjllVfG7NmzC9H3+OOPx9e//vW4//77o6SkJCoqKuqsvybu1l4OAEDTaNB7AJ999tm45JJLYty4cVFRURE77LBD3HHHHfHEE0/EzTff3FgzAgDQiBr0CuCnPvWpmD9/frRv376wbJ999ok333wzVq9eXe82d9xxR0MOCQBAAzUoAEtLS6O0tHSd5bvuuut6t9nQfQAAbHlN+ruAAQBofgIQACAzAhAAIDMCEAAgMwIQACAzAhAAIDMCEAAgMwIQACAzAhAAIDMCEAAgMwIQACAzAhAAIDMCEAAgMwIQACAzAhAAIDMCEAAgMwIQACAzAhAAIDPFzT3A9mz25UdFWVlZc48BAFCHVwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMlPc3ANszw669JFoUbJTc4+xTXvjisHNPQIAbHe8AggAkBkBCACQGQEIAJAZAQgAkBkBCACQGQEIAJAZAQgAkBkBCACQGQEIAJAZAQgAkBkBCACQGQEIAJAZAQgAkBkBCACQGQEIAJAZAQgAkBkBCACQGQEIAJAZAQgAkJnipjhIbW1tvPLKK/HOO+9Et27doqKioikOCwBAPbZ4AD766KNx3nnnRVFRUZSVlcXMmTPjuOOO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jsaNG5datmxZ59+KHMyaNStFRJoxY8Z61+nXr18699xz07Rp0zb6qv3mchHIZpo5c2YceuihdZb17t07Zs6c2ajbbA9mzpwZn/rUp+r8PsPevXsX7tuQ008/PU455ZRo3759DBs2bJ33QBDx97//PVauXFnnudWiRYs49NBDt/vn1idVU1MTQ4YMiWOPPTbatGkTl112WXOP1CymT58eXbt2Xe/9M2fOjJKSkjjwwAMLy/bdd98oKyvL7rk1Y8aMiIiNvk/tr3/9a5x88snx7//+79GxY8eYNGlSU4y3VXj22WfjiSeeiOuvvz7uvPPOuOSSS9a77syZM+Pggw+u837S3r17x0cffVTve3S3NwsXLoypU6fG3XffHaeffnocd9xxccghh2xwm5tvvjlGjhwZBx54YPTs2TOee+65RplFAG6GlStXxooVK6Jt27Z1lrdt2zaqqqoi1fOZ2p9km+3FkiVL1nncu+22W+G++rRs2TLGjx8fb7/9drzwwgsxZ86cePLJJ+Pb3/72Fp93W7PmHNb33Frf+c1Zx44dY9q0afHaa6/Fq6++Gvfdd1/88Ic/jF/84hfNPVqTeuihh+L222+Piy++eL3r1PdnNyK/51Z1dXWcdtppcdRRRxW+ea1P//79Y968eTF79uxYtGhRnH322TFs2LCYNWtWE07bfK6++uoYNWpUfO9734t///d/j8MOO2y969b33FpzO4fn1pQpU2L06NFx3nnnxVtvvRUjR46MoqKi9a5/xhlnxDvvvBPPPfdcLFq0KLp27RpHH310LF++vMGzCMDN0LJly4j4OOr+1YoVK6K4uLje/4mfZJvtRcuWLdd53Gtur++qup133jmGDRtWuN2tW7cYNWpUTJw4MWpra7fcsNugDT23NnbVYo4+85nP1Lkqc8CAAXHsscfGhAkTmnGqpvXkk0/GCSecEBdffHEcf/zx612vvj+7EXk9tz744IP48pe/HC1btozf/OY3G1x38ODB0bFjx4iIKCoqiosuuig6dOgQd911V1OM2uzGjx8f06dPj4ULF8ayZcviP/7jP9a7bn3PrRUrVkTE+v9d2J6cdNJJ8eSTT8Ybb7wR3/ve9+JLX/rSBr9RGDFiROy0004R8fG/j9dcc03Mmzev3k/L2FwCcDPssMMO0bFjx1i4cGGd5QsXLoxOnTo12jbbi06dOtX7uCMi9t57703eT4cOHWLFihVZfHe4OdY8f+o7x5tzfnPWoUOHdc7f9uqpp56KQYMGxXe+852N/ui7U6dOUVVVFR988EFhWU1NTbz77rtZPLdWrFgRQ4YMiSVLlsTjjz9e+MnFpioqKor27dtn89xao7S0NM4444x4+umno6qqqt51Guvfhe3BN77xjSgrK4tHH310k7fp0KFDRKz79/4nIQA305FHHhkPPPBA4Ue3tbW18cADD8SRRx5ZWGfBggXx17/+dbO22R4deeSRsXDhwnj22WcLy+67774oKyuLPn36RETEqlWrYurUqbF48eKI+Pizytb26KOPRkVFRb0/ksrNnDlzYvbs2RER0blz5+jWrVvcf//9hfvfeuutmDZt2nb/3NoUS5YsialTp0ZNTU1ErPvcWr16dfzpT3+Kgw46qDnGa1JPP/10DBw4MM4+++z4n//5n/Wu8+abb0ZExOc///lo0aJFTJ48uXD/Qw89FKtWrYovfOELTTJzc1kTf4sXL44//vGP9X7+6BtvvBHTp08v3F77ubVgwYL4+9//vt0/t+r7+3ru3LnRunXrwueRfvDBBzF16tTC+7iPPPLImDlzZixYsKCwzX333Rd777137Lvvvk0zeDNYsWLFOj/Fevvtt6O6urrOv22zZs2Kl19+eb3brInFRnluNeolJRl45ZVXUllZWTrllFPS/fffn4YNG5batGmT3njjjcI6Y8aMqfNxE5uyzfbqy1/+ctp3333Tb3/723TjjTem1q1bp2uuuaZw/+LFi1NEpNtvvz2llNLVV1+dTjrppDR+/Pj04IMPpjPPPDMVFxen2267rbkeQpOZP39+mjJlSho3blzhqsMpU6bU+Zy6wYMH17l6fNKkSam4uDj94Ac/SHfffXfq3bt3OuSQQ7b7j+r46KOP0pQpU9KUKVNSt27d0kknnZSmTJmSnnvuucI699xzT50rzocOHZrOP//8dO+996ZJkyalAQMGpPLy8sLHM22vZs2alcrLy9NRRx1VOGdrvv71Sszy8vI6V4+fe+65affdd0+33HJLuu2221KHDh3SWWed1QyPoGkNGDAg7brrrunuu++uc67+9aM6zj///NSxY8fC7R49eqQrrrgiPfzww+mWW25J++23XzrwwANTdXV1czyEJnPBBRek008/Pf3ud79LDz/8cLr00ktT69at03//938X1nnhhRfqXD2+atWq1Ldv33TooYemu+66K/3oRz9KxcXF2/3Hoj3//POpb9++6ec//3l67LHH0i233JJ69OiRDjjggLR8+fLCen369EknnnhiSimlF198MfXq1SvdfPPN6ZFHHklXXXVVatOmTaN9ZE5RStvxVQhbyJw5c+Lqq6+O119/Pbp27RqjRo2q853L+PHj41e/+lX84Q9/2ORttlcrV66Ma6+9Nv70pz9F69at46STToqhQ4cW7l+2bFkMHjw4LrnkkhgwYEBEfPzd4KRJk+Kdd96Jrl27xmmnnRaf/vSnm+shNJnx48fHTTfdtM7yUaNGxVe+8pWIiBg9enR8+OGHce211xbuf+SRR2LcuHFRVVUVvXr1itGjR8euu+7aVGM3izXPm7V17949xo0bFxEfv9n6wgsvjEmTJkVFRUV8+OGHMW7cuHj88cdj9erVcdBBB8W3v/3two9Utlf33XdfXHnllfXe9/vf/z522WWXiIgYNGhQHH/88XHqqadGxMc/qRg7dmzcf//9kVKKwYMHx5lnnrld/zaQ1atXx+GHH17vfd/61rfipJNOioiIG2+8Mf7whz/E3XffHRER77zzTlx//fUxffr0KC0tjX/7t3+LM888c7v/DTO1tbVx5513xuTJk6Oqqio6deoUI0aMiP79+xfWef311+Pkk0+On/zkJ/HZz342Ij6+uObKK6+Mp556KsrLy+NrX/taDBkypLkeRpOZM2dO3HzzzfHSSy9F27Zt47DDDotTTz21zm98Ov3002OPPfYovE1jzpw5cdNNN8Urr7wSe+yxRwwZMiSOO+64RplHAAIAZMZ7AAEAMiMAAQAyIwABADIjAAEAMiMAAQAyIwABADIjAAEAMiMAgW3aPffcU/gVZhEREydOjEWLFjXJsQC2VT4IGthkH3zwQcyYMSOWLFkSlZWVccABB9T5FPvGcvfdd0fv3r1jr7322ui6u+++e9xwww2F39LQqlWrmDRpUoN/s0B9M6x9rC1lcx7/+rz88ssxc+bM9d6/7777xiGHHBIREffff3/07t07Kioq6r0NbH+8AghsVEopxowZExUVFfGd73wnbrvttjjzzDOje/fu8bOf/azRj3fqqafG008/vUnrHnvssdGpU6cmmWFLHWtTjr25Xn311bj33nvX+frZz34WQ4cOjQkTJhTWPeuss+K5555b721g+1Pc3AMAW7+LL744rrvuurj//vvjc5/7XGF5VVVVPPTQQ3XWXbp0aTz11FOxatWq6Nu3b7Rr167O/RMnTox+/fpFUVFRPP/887HrrrtG7969o0WLj78fffDBB+Ojjz6KJ598MlatWhUlJSVxzDHHFLb78MMP47nnnouuXbtGjx49YtCgQdGxY8d1Zl6wYEHMmjUrdtttt+jTp08UFRVFRMSqVati0qRJceSRR0bbtm0L699///3Ro0eP6NKly3pnqO9YDX28a1vfsTflWP9qyJAh67wKumLFijjssMOia9euceGFF653WyADCWAD/vd//zftuOOO6fvf//5G133ggQdSaWlp6tOnT+rfv3/aaaed0q9//es665SUlKRBgwalrl27piFDhqT27duno446KtXW1qaUUjrnnHNSy5YtU79+/dKJJ56YRo4cWdhu4MCBqXPnzumYY45Jv/3tb1NKKbVt2zbdeeeddfZ/1FFHpb322isNGjQo7bbbbmnw4MHpo48+Siml9N5776WISE899VSduTp27JhuueWWDc6w9rEa4/GubX3H3pRjbczQoUNTaWlpmj179jqP/eGHH17vbWD7IwCBDZowYUKKiHWiYW3V1dWpffv26bLLLissu+GGG9LOO++cFi5cWFhWUlKSDj/88LRy5cqUUkpvvvlm2nHHHdOjjz5aWKe8vDxNnDixzv5LSkpSr1690vvvv19neX0BuN9++6WlS5cW9t+mTZs0duzYlNKmBeD6ZvjXYzXm413b2sfe1GNtyBVXXJGKiorSPffcs859Z511VnruuefWexvY/ngPILBB//znPyMiYu+9997gen/84x9jyZIlMWrUqMKyM844I1q1ahWTJ0+us+6pp54aJSUlERFRWVkZ++yzT7z88ssbneUb3/hG7LTTThtdb+TIkVFeXl7Y/9ChQ+N3v/vdRrfbHE3xeD/Jserz8MMPx0UXXRSXXnppHH300evcf+ONN0bPnj3XexvY/ghAYINKS0sjIuLdd9/d4Hrz5s2LioqKOoG2ww47ROfOnWPevHl11t1tt93q3C4pKYmVK1dudJY99thjk2bu3LlzndtdunRZZ4aGaorH+0mOtbZXXnklhg4dGkcffXRccsklm3xMYPsmAIEN6t27d0TERq9K3X333aOqqmqd5UuWLIndd9+9UWZZcyHHxqw9R1VVVWGGNRdf1NbW1llnc4Isomkeb0OPVV1dHV/5yleisrIybr311k0+f8D2TwACG3TQQQfFkUceGZdcckksW7ZsnfvXfDBy3759o6amJh555JHCfX/729/i9ddfj379+m3WMXfZZZfNDrJ/de+99xb+u7a2Nu69997CDDvttFPsuuuuMXfu3MI6L7zwwjqvcG5shsZ8vGtb+9if5Fi1tbUxfPjwePvtt+O+++6LXXbZpUEzAdsXHwMDbNTtt98eX/7yl6Nnz57x9a9/PTp16hQLFy6MqVOnRmlpaUyYMCH22WefOPfcc2Po0KExevTo2HHHHePKK6+Mr371q4VXETfVZz/72fj5z38eKaXYZZddCh+DsqmeeeaZGD58eBx++OFx9913xzvvvFPn/XNf/epX48ILL4zq6uqoqamJX/7yl9GqVavNmqExH+/a6jv25h7r6quvjsmTJ8dpp50W06ZNi2nTptW5v6KiIo444ogGzQlsuwQgsFEdOnSIp59+Oh544IH405/+FHPnzo3Kyso455xzYsCAAYX1fvzjH0ffvn3j97//faxevTp+/OMfx7Bhw+rs64QTTljns/QGDhwY3bt3L9weO3Zs/OxnP4vHHnssWrVqFcccc0y920Ws++HMJ5xwQnzzm9+Mv/3tbzFjxoz49Kc/HWPHjo327dsX1rnmmmti//33jxkzZkTHjh1j8uTJcfXVV0eXLl02OMPax2qsx7u2+o69Kcf6V+Xl5XHiiSfGsmXL6rwiukaPHj0EIGTMr4IDAMiM9wACAGRGAAIAZEYAAgBkRgACAGRGAAIAZEYAAgBkRgACAGRGAAIAZEYAAgBkRgACAGRGAAIAZEYAAgBkRgACAGRGAAIAZEYAAgBkRgACAGRGAAIAZOb/A6dF4KfOAAt2AAAAAElFTkSuQmCC"/>
 </div>
 </div>
 </div>
@@ -8183,7 +8351,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -8203,17 +8371,159 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">altmanZDPImpliedRating</span><span class="p">(</span><span class="s2">"IBM"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>'AAA'</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>追加実装（日本語版独自）: APIキーなしで計算する（SEC EDGAR）</strong></p>
+<p>原文の方法では、IBM 以外の企業を計算するには Alpha Vantage の自分のキーが必要です。ここでは、キーなしで誰でも使える公的データベース、米証券取引委員会（SEC）の EDGAR から同じ材料を取り、他の企業でも計算できるようにします。EDGAR は上場企業の開示書類そのものを公開しているので、登録もキーも要りません。</p>
+<p>原文の計算との違いは2つです。</p>
+<ul>
+<li>$x_4$ は、株価を使う時価総額ではなく、自己資本の簿価 ÷ 負債総額で計算します。Z'' モデル本来の定義はこちらで、EDGAR だけで材料がそろう利点もあります</li>
+<li><a class="term-link" href="#gloss-ebit">EBIT</a> は、項目がある企業では営業利益（OperatingIncomeLoss）を使い、ない企業では「税引前利益 ＋ 支払利息」で近似します</li>
+</ul>
+<p>数値は開示書類の申告そのままなので、Alpha Vantage の正規化データとは細部が異なり、結果も完全には一致しません。</p>
+<p>なお、SEC のフェアアクセス方針により、アクセスの際は User-Agent で名前とメールアドレスを名乗る必要があります。これはキーや登録とは別で、SEC 側が求める作法です。コードでは環境変数 <code>SEC_USER_AGENT</code> から読むようにしてあります。</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="c1"># SEC のフェアアクセス方針で、利用者を表す User-Agent（名前とメールアドレス）を名乗る必要があります</span>
+<span class="c1"># 実行前に、環境変数 SEC_USER_AGENT へ自分のものを設定してください（例: "Your Name you@example.com"）</span>
+<span class="n">SEC_HEADERS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"User-Agent"</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"SEC_USER_AGENT"</span><span class="p">,</span> <span class="s2">"Your Name you@example.com"</span><span class="p">)}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sec_cik</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+    <span class="n">tickers</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s2">"https://www.sec.gov/files/company_tickers.json"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">SEC_HEADERS</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tickers</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">"ticker"</span><span class="p">]</span> <span class="o">==</span> <span class="n">ticker</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s2">"cik_str"</span><span class="p">]</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="n">concept</span><span class="p">,</span> <span class="n">taxonomy</span><span class="o">=</span><span class="s2">"us-gaap"</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://data.sec.gov/api/xbrl/companyconcept/CIK</span><span class="si">{</span><span class="n">cik</span><span class="si">:</span><span class="s2">010d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">taxonomy</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">concept</span><span class="si">}</span><span class="s2">.json"</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">SEC_HEADERS</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"units"</span><span class="p">]</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">annual</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"form"</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"10-K"</span><span class="p">,</span> <span class="s2">"10-K/A"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"fp"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"FY"</span><span class="p">]</span>
+    <span class="n">annual</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s2">"end"</span><span class="p">],</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"filed"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">annual</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s2">"val"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">altman_z_double_prime_edgar</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+    <span class="n">cik</span> <span class="o">=</span> <span class="n">sec_cik</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+    <span class="n">total_assets</span> <span class="o">=</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"Assets"</span><span class="p">)</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"AssetsCurrent"</span><span class="p">)</span> <span class="o">-</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"LiabilitiesCurrent"</span><span class="p">))</span> <span class="o">/</span> <span class="n">total_assets</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"RetainedEarningsAccumulatedDeficit"</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_assets</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ebit</span> <span class="o">=</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"OperatingIncomeLoss"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">ebit</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"InterestExpense"</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span> <span class="n">ebit</span> <span class="o">/</span> <span class="n">total_assets</span>
+    <span class="n">x4</span> <span class="o">=</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"StockholdersEquity"</span><span class="p">)</span> <span class="o">/</span> <span class="n">sec_latest</span><span class="p">(</span><span class="n">cik</span><span class="p">,</span> <span class="s2">"Liabilities"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">6.56</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="mf">3.26</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="mf">6.72</span> <span class="o">*</span> <span class="n">x3</span> <span class="o">+</span> <span class="mf">1.05</span> <span class="o">*</span> <span class="n">x4</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">implied_rating</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">adj_z</span> <span class="o">=</span> <span class="mf">3.25</span> <span class="o">+</span> <span class="n">z</span>
+    <span class="n">z_map</span> <span class="o">=</span> <span class="p">[</span><span class="mf">8.15</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="mf">7.3</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">6.85</span><span class="p">,</span> <span class="mf">6.65</span><span class="p">,</span> <span class="mf">6.4</span><span class="p">,</span> <span class="mf">6.25</span><span class="p">,</span> <span class="mf">5.85</span><span class="p">,</span> <span class="mf">5.65</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">,</span> <span class="mf">4.95</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.15</span><span class="p">,</span> <span class="mf">3.75</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">]</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"AAA"</span><span class="p">,</span> <span class="s2">"AA+"</span><span class="p">,</span> <span class="s2">"AA"</span><span class="p">,</span> <span class="s2">"AA-"</span><span class="p">,</span> <span class="s2">"A+"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"A-"</span><span class="p">,</span> <span class="s2">"BBB+"</span><span class="p">,</span> <span class="s2">"BBB"</span><span class="p">,</span> <span class="s2">"BBB-"</span><span class="p">,</span> <span class="s2">"BB+"</span><span class="p">,</span> <span class="s2">"BB"</span><span class="p">,</span> <span class="s2">"BB-"</span><span class="p">,</span> <span class="s2">"B+"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"B-"</span><span class="p">,</span> <span class="s2">"CCC+"</span><span class="p">,</span> <span class="s2">"CCC"</span><span class="p">,</span> <span class="s2">"CCC-"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">scores</span><span class="p">[</span><span class="n">z_map</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z_map</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z_map</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">adj_z</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())]</span>
+
+
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"IBM"</span><span class="p">,</span> <span class="s2">"AAPL"</span><span class="p">]:</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">altman_z_double_prime_edgar</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="s2">"Z'' ="</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">" / 対応格付け:"</span><span class="p">,</span> <span class="n">implied_rating</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>IBM Z'' = 4.097  / 対応格付け: AA
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>AAPL Z'' = 3.202  / 対応格付け: A-
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>IBM は原文の計算と見比べられます。$x_4$ の定義とデータの正規化が違うため、値は近づきますが一致はしません。どちらの値が正しいかではなく、「どの定義で、どのデータを取ったか」で結果が動くこと自体が、この種の指標を読むときの注意点です。</p>
 </div>
 </div>
 </div>
@@ -8233,5 +8543,5 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </main>
-</main><div class="pager"><a class="pager-btn prev" href="7_advanced_plotting.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">7. グラフ描画の応用：matplotlib の先へ</span></a><a class="pager-btn next" href="9_3d_plotting.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">9. 9_3d_plotting</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-working-capital">運転資本</dt><dd>流動資産から流動負債を差し引いたもの。日々の事業を回すための余力を表します。</dd><dt id="gloss-retained-earnings">利益剰余金</dt><dd>企業が過去に稼いだ利益のうち、配当などで外に出ず、社内に残っている累計額。</dd><dt id="gloss-ebit">EBIT</dt><dd>利払前・税引前利益。借入の利息と税金を差し引く前の、本業の稼ぐ力を表します。</dd><dt id="gloss-market-cap">時価総額</dt><dd>株価 × 発行済株式数。市場がその企業全体につけた値段です。</dd><dt id="gloss-credit-rating">信用格付け</dt><dd>企業や債券が約束どおり返済する確からしさを、AAA から D などの記号で表した評価。</dd><dt id="gloss-default">デフォルト</dt><dd>借りた側が返済の約束を守れなくなること。債務不履行ともいいます。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="7_advanced_plotting.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">7. グラフ描画の応用：matplotlib の先へ</span></a><a class="pager-btn next" href="9_3d_plotting.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">9. 9_3d_plotting</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

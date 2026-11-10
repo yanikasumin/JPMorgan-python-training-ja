@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7938,6 +7937,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -8145,7 +8152,7 @@ mycode_v2+v3.py</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>代わりに、バージョン管理システム（VCS）を使います。選択肢はたくさんありますが、最も一般的なのは、<em>git</em> と <a href="github.com">github</a> の組み合わせです。</p>
+<p>代わりに、<a class="term-link" href="#gloss-version-control">バージョン管理</a>システム（VCS）を使います。選択肢はたくさんありますが、最も一般的なのは、<em>git</em> と <a href="github.com">github</a> の組み合わせです。</p>
 </div>
 </div>
 </div>
@@ -8370,7 +8377,7 @@ mycode_v2+v3.py</code></pre>
 </ol>
 <ul>
 <li>関数</li>
-<li>モジュール</li>
+<li><a class="term-link" href="#gloss-module">モジュール</a></li>
 <li>プログラム全体</li>
 </ul>
 <ol>
@@ -8455,7 +8462,7 @@ mycode_v2+v3.py</code></pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
@@ -8578,7 +8585,7 @@ mycode_v2+v3.py</code></pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="err">!</span><span class="n">py</span><span class="o">.</span><span class="n">test</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span>py.test
 </pre></div>
 </div>
 </div>
@@ -8689,7 +8696,7 @@ mycode_v2+v3.py</code></pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="n">mymodule</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> mymodule.py
 
 <span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">():</span>
     <span class="k">return</span> <span class="s2">"Surprise!"</span>
@@ -8861,7 +8868,7 @@ mycode_v2+v3.py</code></pre>
 </div>
 </div>
 </main>
-</main><div class="pager"><span class="pager-spacer"></span><a class="pager-btn next" href="1_basic.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">1. Jupyter 入門</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-version-control">バージョン管理</dt><dd>ファイルの変更履歴を記録し、いつでも過去の状態に戻せるようにする仕組み。この章では Git を使います。</dd><dt id="gloss-module">モジュール</dt><dd>Python のコードをまとめたファイルのこと。再利用できる部品として、他のプログラムから読み込んで使います。</dd><dt id="gloss-unit-test">単体テスト</dt><dd>関数などの小さな単位ごとに、正しく動くかを自動で確かめるテスト。問題の場所を早く特定できます。</dd></dl></section></main><div class="pager"><span class="pager-spacer"></span><a class="pager-btn next" href="1_basic.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">1. Jupyter 入門</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script>

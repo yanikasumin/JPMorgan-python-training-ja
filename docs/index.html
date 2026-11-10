@@ -123,6 +123,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -208,6 +216,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <p><strong>この Python 研修は、JPMorgan のビジネスアナリストとトレーダー、および一部のクライアントを対象としています。</strong></p>
 <blockquote>
 <p><strong>日本語版について</strong>: このリポジトリは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。</p>
+<p>なお、第4章・第8章・第9章には、原文に不足していた部分を日本語版が独自に実装・修正した箇所があります（API の提供終了への対応、キーなしで使えるデータ源への差し替え、説明のないコードへの章の組み立て）。各章の中で明記しています。</p>
 <p>日本語版の翻訳・公開： 霞ヶ関京<br />
 連絡先： GitHub <a href="https://github.com/yanikasumin">@yanikasumin</a><br />
 X（旧 Twitter）<a href="https://x.com/lieberalism">@lieberalism</a>（アカウント凍結中）<br />

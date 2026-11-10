@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -7911,6 +7910,14 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
 footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
+/* --- glossary --- */
+.glossary { margin: 34px 0 6px; border-top: 2px solid var(--gold); padding-top: 18px; }
+.glossary h2 { font-family: "Shippori Mincho", serif; font-size: 19px; color: var(--navy); margin: 0 0 6px; }
+.glossary .gloss-note { font-size: 12.5px; color: #5A6672; margin: 0 0 12px; }
+.glossary dl { margin: 0; }
+.glossary dt { font-weight: 700; color: var(--navy); margin-top: 14px; scroll-margin-top: 24px; }
+.glossary dd { margin: 3px 0 0; line-height: 1.75; }
+a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5px; text-underline-offset: 3px; }
 @media (max-width: 700px) {
   .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
   .site-head .inner { padding: 16px 16px 10px; }
@@ -8011,7 +8018,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="err">?</span>
+pd.read_csv<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -8142,7 +8149,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">routes</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8263,7 +8270,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>次は実用的な集計をします。登録されている路線データを出発地と目的地の組み合わせごとに数え、件数が多い上位10組を調べます。</p>
+<p>次は実用的な<a class="term-link" href="#gloss-aggregation">集計</a>をします。登録されている路線データを出発地と目的地の組み合わせごとに数え、件数が多い上位10組を調べます。</p>
 </div>
 </div>
 </div>
@@ -8341,5 +8348,5 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 </div>
 </main>
-</main><div class="pager"><a class="pager-btn prev" href="2_straddle.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">2. 例1：ストラドルの価格計算</span></a><a class="pager-btn next" href="4_webapi.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">4. Web API からのデータ取得</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-aggregation">集計</dt><dd>データをグループごとにまとめ、合計や平均などを計算すること。</dd><dt id="gloss-missing-value">欠測値</dt><dd>データに値が入っていない箇所のこと。分析の前に、除くのか補うのかを判断する必要があります。</dd><dt id="gloss-merge">結合（マージ）</dt><dd>共通のキーを手がかりに、複数の表を1つにつなぐ操作。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="2_straddle.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">2. 例1：ストラドルの価格計算</span></a><a class="pager-btn next" href="4_webapi.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">4. Web API からのデータ取得</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

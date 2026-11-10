@@ -5,6 +5,8 @@
 
 > **日本語版について**: このリポジトリは、[jpmorganchase/python-training](https://github.com/jpmorganchase/python-training) を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。
 >
+> なお、第4章・第8章・第9章には、原文に不足していた部分を日本語版が独自に実装・修正した箇所があります（API の提供終了への対応、キーなしで使えるデータ源への差し替え、説明のないコードへの章の組み立て）。各章の中で明記しています。
+>
 > 日本語版の翻訳・公開： 霞ヶ関京  
 > 連絡先： GitHub [@yanikasumin](https://github.com/yanikasumin)  
 > X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）  
