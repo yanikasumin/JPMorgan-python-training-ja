@@ -7925,7 +7925,35 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </style>
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-head"><div class="inner"><p class="eyebrow">PYTHON TRAINING</p><p class="site-title"><span class="diamond"></span><a href="../index.html">Python Training 日本語版</a></p></div></header><nav class="site-nav-row"><ol><li><a href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 金融データの利用</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a class="current" href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav><main class="page-sheet">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<main>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の英語原文をもとにした日本語版です（Apache License 2.0）。原文にはタイトルも説明文もなく、コードだけが置かれています。以下の「補足」は日本語版で独自に追加した解説で、原文の翻訳ではありません。コード自体は原文から変更していません。</p>
+</blockquote>
+<h1 id="3%E6%AC%A1%E5%85%83%E3%83%97%E3%83%AD%E3%83%83%E3%83%88">3次元プロット<a class="anchor-link" href="#3%E6%AC%A1%E5%85%83%E3%83%97%E3%83%AD%E3%83%83%E3%83%88">¶</a></h1><p><strong>補足（日本語版独自の解説）: このノートブックが描くもの</strong></p>
+<p>描かれるのは、米国債のイールドカーブ（期間ごとの利回りを並べた曲線）を、1990年から2015年まで毎日分重ねた3次元の「面」です。</p>
+<ul>
+<li>横軸: 期間（1か月〜30年の11種類）</li>
+<li>奥行き: 日付（1990年1月2日〜2015年3月18日、6,307営業日）</li>
+<li>高さ: 利回り（%）</li>
+</ul>
+<p>イールドカーブは通常、右上がりの曲線です。それを25年分並べると面になり、金利環境の変化が一望できます。面全体が時代とともに低くなっていく様子が、長期の金利低下そのものです。短期側（手前）が長期側より高くなる箇所は「逆イールド」で、景気後退の前触れとして知られます。そういう時期が面の形に現れていることも読み取れます。</p>
+<p>データは <code>../data/yield_curve.csv</code> です。列の構成は次のとおりで、描画ライブラリに渡す形に最初から整えられています。</p>
+<ul>
+<li><code>x</code> 列: 期間のラベル（先頭の11行にだけ入っている）</li>
+<li><code>y</code> 列: 日付</li>
+<li><code>z[0]</code>〜<code>z[10]</code> 列: その日の各期間の利回り</li>
+</ul>
+<p>次のセルは、<code>x</code> と <code>y</code> を軸用に取り出し、残りを高さの行列 <code>zlist</code> に変える処理です。</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7951,6 +7979,25 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
     <span class="n">zlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>補足（日本語版独自の解説）: 濃い線と <code>"None"</code> の処理</strong></p>
+<p>上のセルで描いているのは2つです。</p>
+<ul>
+<li><code>trace1</code>: 利回りの面そのもの（Surface）</li>
+<li><code>trace2</code>: 面の手前の縁に沿う濃い線。最も短い期間の利回りの推移だけをなぞっています</li>
+</ul>
+<p>線をわざわざ継ぎはぎしているのには理由があります。最短の1か月物にあたる列 <code>z[0]</code> は、1990年1月2日から2001年7月30日までの2,899行が文字列 <code>"None"</code>、つまり値がありません。当時はその期間の系列自体が存在しなかったためです。そこでコードは、値のない期間は次の列 <code>z[1]</code>（3か月物）で代用し、2001年7月31日以降は <code>z[0]</code>（1か月物）に切り替えて、1本の線につないでいます。</p>
+<p>中・長期側の列にも欠けた期間があります（<code>z[9]</code> で939行、<code>z[10]</code> で994行が <code>"None"</code>）。文字列は数値として扱えないので、その箇所は面に穴が開いた状態で描かれます。</p>
+<p>なお <code>lighting</code> や <code>colorscale</code> は見た目の調整です。意味を持つのは、軸と値の対応だけです。</p>
 </div>
 </div>
 </div>

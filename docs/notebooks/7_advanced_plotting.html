@@ -8310,6 +8310,25 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>補足（日本語版独自の解説）: 次のセルの大きな配列について</strong></p>
+<p>次のセルでは、説明なしに大きな数値配列が3つ出てきます。サーフェスの材料で、対応は次のとおりです。</p>
+<ul>
+<li><code>c</code>: マネーネス（行使価格 ÷ 原資産価格）の列。0.8023〜1.2093 の36点。1.0 がアット・ザ・マネー（行使価格と原資産価格が等しい状態）です</li>
+<li><code>i</code>: 満期の列。2019年8月2日から2020年6月19日までの15時点</li>
+<li><code>d</code>: インプライド・ボラティリティの行列（15行×36列）。行が満期、列がマネーネスに対応します</li>
+</ul>
+<p>次のセルで <code>df2 = pd.DataFrame(d, columns=c, index=i)</code> と整形し、そのあとのセルで plotly の Surface として描きます。</p>
+<p>読み方としては、マネーネスが 1.0 から離れるほどボラティリティが上がる形、いわゆるボラティリティ・スマイル（スキュー）が面の凹凸に現れます。第9章のイールドカーブ・サーフェスと同じく、「2つの条件で決まる量を面で眺める」ための描き方です。</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">

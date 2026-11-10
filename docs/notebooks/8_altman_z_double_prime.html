@@ -7980,6 +7980,24 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>補足（日本語版独自の解説）: このあとのコードの進み方</strong></p>
+<p>式だけでは計算の流れが分からないので、先に全体像を書いておきます。</p>
+<ol>
+<li>Alpha Vantage の API から、IBM の損益計算書・貸借対照表・時価総額を取得する</li>
+<li>財務の数値を、上の式の $x_1$〜$x_4$ に当てはめる</li>
+<li>係数（6.56、3.26、6.72、1.05）を掛けて合計し、Z'' を出す</li>
+<li>計算を関数にまとめ、最後に Z'' から通常の信用格付けへの換算も行う</li>
+</ol>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8144,6 +8162,19 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">altmanZDoublePrime</span><span class="p">(</span><span class="s2">"IBM"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>補足（日本語版独自の解説）: 格付けへの換算</strong></p>
+<p>次の関数 <code>altmanZDPImpliedRating</code> は、Z'' に 3.25 を足した値を、格付けごとの境界値の表（AAA 側の 8.15 から D 側の 1.75 まで）と照らし合わせ、対応する格付けを返します。</p>
+<p>本文の目安（2.6 を超えれば健全、1.1 未満は危険）とは別に、格付けの形で水準を示すための仕組みです。</p>
 </div>
 </div>
 </div>
