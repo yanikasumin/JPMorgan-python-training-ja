@@ -7793,78 +7793,131 @@ a.anchor-link {
     white-space: normal;
   }
 </style>
-<!-- End of mermaid configuration -->
+<!-- End of mermaid configuration --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0a2540; --navy2: #103a5c; --bronze: #b08d57;
-  --ink: #1c2733; --muted: #5b6b7a; --line: #e2e6ea; --bg: #edf0f3;
+  --bg:#FAF6EF; --panel:#FFFFFF; --panel2:#F3EDDF; --ink:#1D2732;
+  --navy:#14324F; --navy2:#0E2438; --gold:#A96F14; --gold-soft:#F0E3C8;
+  --code-bg:#0F2233; --line:#E7DFC9; --muted:#6B7684;
+  --shadow: 0 1px 2px rgba(20,50,79,.05), 0 10px 30px rgba(20,50,79,.07);
+  --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --sans: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
 }
 html { -webkit-text-size-adjust: 100%; }
 body.jp-Notebook, body.site {
   margin: 0 !important; background: var(--bg); color: var(--ink);
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--sans);
+}
+/* --- overflow containment: nothing may stretch the page --- */
+.jp-Notebook, .jp-Cell, .jp-Cell-inputWrapper, .jp-InputArea, .jp-OutputArea,
+.jp-CodeMirrorEditor, .cm-editor, .cm-scroller, .jp-RenderedHTMLCommon {
+  min-width: 0 !important; max-width: 100% !important;
 }
 img, svg, video { max-width: 100% !important; height: auto; }
 pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+.page-sheet { overflow-x: clip; }
 
-/* header band */
-.site-nav { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; }
-.site-nav .inner { max-width: 940px; margin: 0 auto; padding: 18px 20px 14px; }
-.site-nav .site-title { font-size: 19px; font-weight: 700; margin: 0 0 2px; letter-spacing: .02em; }
-.site-nav .site-title a { color: #fff; text-decoration: none; }
-.site-nav .site-sub { font-size: 12px; color: rgba(255,255,255,.72); margin: 0 0 12px; }
-.site-nav ol { display: flex; flex-wrap: wrap; gap: 6px 8px; list-style: none; margin: 0; padding: 0; }
-.site-nav ol a {
-  display: inline-block; color: rgba(255,255,255,.88); text-decoration: none;
-  font-size: 12.5px; padding: 4px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px;
+/* --- header --- */
+.site-head { border-bottom: 2px solid var(--ink); }
+.site-head .inner { max-width: 1180px; margin: 0 auto; padding: 20px 22px 14px; }
+.eyebrow { font-size: 11px; letter-spacing: .34em; color: var(--gold); font-weight: 700; margin: 0 0 6px; white-space: nowrap; }
+.site-head .site-title { font-family: var(--serif); font-weight: 800; font-size: 24px; margin: 0; }
+.site-head .site-title a { color: var(--navy2); text-decoration: none; white-space: nowrap; }
+.diamond { display: inline-block; width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); margin: 0 10px 2px 2px; }
+.site-nav-row { max-width: 1180px; margin: 0 auto; padding: 10px 22px 14px; }
+.site-nav-row ol {
+  display: flex; flex-wrap: nowrap; gap: 8px; list-style: none; margin: 0; padding: 2px 0;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
-.site-nav ol a:hover { background: rgba(255,255,255,.12); }
-.site-nav ol a.current { background: #fff; color: var(--navy); font-weight: 700; border-color: #fff; }
+.site-nav-row ol::-webkit-scrollbar { display: none; }
+.site-nav-row a {
+  display: inline-block; white-space: nowrap; font-size: 12.5px; line-height: 1;
+  padding: 9px 14px; border-radius: 999px; border: 1px solid var(--navy);
+  color: var(--navy); text-decoration: none; background: transparent;
+}
+.site-nav-row a.current { background: var(--navy); color: #fff; font-weight: 700; }
 
-/* content sheet */
+/* --- reader sheet --- */
 .page-sheet {
-  max-width: 940px; margin: 22px auto 8px; background: #fff;
-  border-radius: 12px; box-shadow: 0 1px 3px rgba(10,37,64,.10), 0 8px 24px rgba(10,37,64,.06);
-  padding: 30px 38px 36px; box-sizing: border-box;
+  max-width: 920px; margin: 20px auto 6px; background: var(--panel);
+  border-radius: 14px; box-shadow: var(--shadow);
+  padding: 34px 42px 38px; box-sizing: border-box;
 }
-.jp-Cell { margin: 0 0 6px !important; }
-.jp-RenderedMarkdown { font-size: 15.5px; line-height: 1.85; }
-.jp-RenderedMarkdown h1 { font-size: 26px; line-height: 1.4; margin: 10px 0 18px; padding-bottom: 10px; border-bottom: 3px solid var(--bronze); }
-.jp-RenderedMarkdown h2 { font-size: 20px; margin: 30px 0 10px; padding-left: 10px; border-left: 4px solid var(--navy); line-height: 1.5; }
+.jp-Cell { margin: 0 0 8px !important; }
+.jp-RenderedMarkdown { font-size: 15.5px; line-height: 1.9; }
+.jp-RenderedMarkdown h1 {
+  font-family: var(--serif); font-weight: 800; font-size: 27px; line-height: 1.45;
+  margin: 8px 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+}
+.jp-RenderedMarkdown h2 {
+  font-family: var(--serif); font-weight: 800; font-size: 20px; line-height: 1.5;
+  margin: 32px 0 10px; padding-left: 11px; border-left: 4px solid var(--gold);
+}
 .jp-RenderedMarkdown h3 { font-size: 16.5px; margin: 22px 0 8px; }
-.jp-RenderedMarkdown a { color: #0f4c9c; }
+.jp-RenderedMarkdown a { color: var(--navy); }
 .jp-RenderedMarkdown blockquote {
-  margin: 14px 0; padding: 10px 16px; background: #f7f3ec;
-  border-left: 4px solid var(--bronze); color: #4a4234; border-radius: 0 8px 8px 0;
+  margin: 14px 0; padding: 10px 16px; background: var(--gold-soft);
+  border-radius: 8px; color: #4A4234;
 }
 .jp-RenderedMarkdown table { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .jp-RenderedMarkdown th, .jp-RenderedMarkdown td { border: 1px solid var(--line); padding: 6px 10px; }
-.jp-RenderedMarkdown th { background: #f2f5f8; }
-.jp-RenderedMarkdown tr:nth-child(even) td { background: #fafbfc; }
-.jp-InputArea-editor { background: #f6f8fa !important; border: 1px solid var(--line); border-radius: 8px; }
-.jp-InputPrompt, .jp-OutputPrompt { color: #9aa4ae !important; font-size: 11.5px; }
-.jp-OutputArea-output pre { font-size: 13px; }
+.jp-RenderedMarkdown th { background: var(--panel2); }
+.jp-RenderedMarkdown code { font-family: var(--mono); font-size: .88em; background: var(--panel2); padding: 1px 5px; border-radius: 4px; }
 
-/* pager + footer */
-.pager { max-width: 940px; margin: 18px auto 6px; padding: 0 4px; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
-.pager a {
-  color: var(--navy); text-decoration: none; background: #fff; border: 1px solid var(--line);
-  padding: 10px 16px; border-radius: 10px; box-shadow: 0 1px 2px rgba(10,37,64,.06);
+/* --- dark code cells --- */
+.jp-InputArea-editor {
+  background: var(--code-bg) !important; border: none !important; border-radius: 12px;
+  overflow-x: auto !important;
 }
-.pager a:hover { border-color: var(--bronze); }
-footer.site-foot { max-width: 940px; margin: 14px auto 34px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
-footer.site-foot a { color: #0f4c9c; text-decoration: none; }
+.jp-InputArea-editor pre, .jp-InputArea-editor .highlight { background: transparent !important; color: #DCE6F2 !important; }
+.jp-InputArea-editor .highlight pre { color: #DCE6F2; font-family: var(--mono); font-size: 13px; line-height: 1.65; }
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: #7A8CA3; font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .ow, .highlight .nd { color: #C792EA; }
+.highlight .kt { color: #E5C07B; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .ss { color: #98C379; }
+.highlight .se { color: #D19A66; }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il { color: #D19A66; }
+.highlight .nb, .highlight .bp { color: #56B6C2; }
+.highlight .nf, .highlight .fm { color: #61AFEF; }
+.highlight .nc, .highlight .nn { color: #E5C07B; }
+.highlight .ne { color: #E06C75; }
+.highlight .o { color: #89DDFF; }
+.jp-InputPrompt, .jp-OutputPrompt { color: #93A5B8 !important; font-size: 11.5px; font-family: var(--mono); }
+.jp-OutputArea-output pre { font-size: 13px; font-family: var(--mono); }
+
+/* --- pager: large two-line buttons, text never wraps (ellipsis) --- */
+.pager { max-width: 920px; margin: 16px auto 4px; padding: 0; display: flex; gap: 12px; }
+.pager-btn {
+  flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 3px;
+  min-height: 60px; padding: 10px 18px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: var(--shadow); text-decoration: none;
+}
+.pager-btn.next { text-align: right; align-items: flex-end; }
+.pager-label { font-size: 11px; letter-spacing: .12em; color: var(--gold); font-weight: 700; white-space: nowrap; }
+.pager-title {
+  font-family: var(--serif); font-weight: 600; font-size: 14.5px; color: var(--navy);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+}
+.pager-spacer { flex: 1 1 0; }
+footer.site-foot { max-width: 920px; margin: 16px auto 36px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
+footer.site-foot a { color: var(--navy); text-decoration: none; white-space: nowrap; }
 
 @media (max-width: 700px) {
-  .page-sheet { margin: 0 auto; border-radius: 0; padding: 20px 15px 26px; box-shadow: none; }
-  .site-nav .inner { padding: 14px 14px 12px; }
+  .page-sheet { margin: 12px auto 4px; border-radius: 0; padding: 22px 16px 28px; box-shadow: none; }
+  .site-head .inner { padding: 16px 16px 10px; }
+  .site-head .site-title { font-size: 20px; }
+  .site-nav-row { padding: 8px 12px 12px; }
   .jp-RenderedMarkdown { font-size: 14.5px; }
   .jp-RenderedMarkdown h1 { font-size: 22px; }
-  .pager { padding: 0 10px; }
+  .pager { padding: 0 12px; }
+  .pager-btn { min-height: 56px; padding: 8px 12px; }
+  .pager-title { font-size: 13px; }
 }
 </style>
 </head>
-<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-nav"><div class="inner"><p class="site-title"><a href="../index.html">Python Training 日本語版</a></p><p class="site-sub">jpmorganchase/python-training の日本語翻訳版 ― JPMorgan の Python 研修教材</p><ol><li><a href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a class="current" href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></div></header><main class="page-sheet">
+<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-head"><div class="inner"><p class="eyebrow">PYTHON TRAINING</p><p class="site-title"><span class="diamond"></span><a href="../index.html">Python Training 日本語版</a></p></div></header><nav class="site-nav-row"><ol><li><a href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a class="current" href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav><main class="page-sheet">
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8929,5 +8982,5 @@ $$ F = 原資産のフォワード $$</p>
 </div>
 </div>
 </main>
-</main><div class="pager"><span><a href="1_basic.html">← 1. Jupyter 入門</a></span><span><a href="3_flights.html">3. 例2：ファイルを扱う →</a></span></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京 ― 連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</footer></body>
+</main><div class="pager"><a class="pager-btn prev" href="1_basic.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">1. Jupyter 入門</span></a><a class="pager-btn next" href="3_flights.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">3. 例2：ファイルを扱う</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京 ― 連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</footer></body>
 </html>
