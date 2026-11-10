@@ -6,25 +6,24 @@ import numpy as np
 
 
 def mandelbrot(X, Y, max_iterations=1000, verbose=True):
-    """マンデルブロ集合を計算します。
+    """マンデルブロ集合を計算する。
 
-    マンデルブロ数列の発散までの反復回数を格納した行列を返します。
-    行列には、入力として与えられた X ベクトルと Y ベクトルの要素の
-    全ての (x, y) の組に対応するセルが含まれます。各点について
-    最大で max_iterations 回の反復を行います。
+    マンデルブロ数列が発散するまでの反復回数を格納した行列を返します。
+    行列の各セルは、入力の X ベクトルと Y ベクトルの要素の組 (x, y) に
+    対応します。各点について、最大で max_iterations 回まで反復します。
     :param X: x 座標の集合
     :param Y: y 座標の集合
-    :param max_iterations: 数列を強制的に停止するまでの最大反復回数
-    :param show_out: どの行番号を計算中かをコンソールに表示するかどうかを
+    :param max_iterations: 数列を止めるまでの最大反復回数
+    :param show_out: 計算中の行番号をコンソールに表示するかどうかを
         示すフラグ
-    :return: 入力で指定された全ての点についての、発散までの反復回数を
+    :return: 入力で指定した全点についての、発散までの反復回数を
         格納した行列
     """
 
-    # 出力配列を初期化する
+    # 出力配列を初期化
     out_arr = np.zeros((len(Y), len(X)))
 
-    # y 座標について反復する
+    # y 座標についてループ
     for i, y in enumerate(Y):
         for j, x in enumerate(X):
             n = 0

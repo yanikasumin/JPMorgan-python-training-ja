@@ -10,23 +10,23 @@
 
 
 ## 概要
-このコースは、Python による数値計算とデータ可視化への入門として設計されています。コンピュータサイエンスやプログラミングの完全なコースではなく、比較的複雑なトピックでも、プログラミングの正式な教育を受けていない人にとって取り組みやすいものであることを示す、動機づけのための実演として設計されています。
+このコースは、Python での数値計算とデータ可視化の入門です。コンピュータサイエンスやプログラミングの網羅的なコースではありません。ねらいは、プログラミングを専門に学んだことがなくても、かなり複雑なテーマに取り組めることを実際に見せることです。
 
-この研修は、J.P. Morgan のテクノロジストとトレーダーが講師を務める対面形式での実施を想定しています。ご関心のある機関投資家のお客様は、J.P. Morgan の担当チームまでお問い合わせください。
+研修は対面形式で、J.P. Morgan のテクノロジストとトレーダーが講師を務めます。機関投資家のお客様で関心のある方は、J.P. Morgan の担当チームへお問い合わせください。
 
 [![](https://img.shields.io/badge/Launch-Cloud%20Instance-brightgreen?style=for-the-badge)](http://mybinder.org/v2/gh/yanikasumin/python-training/main?urlpath=lab)
 
 ## プラットフォームへの帰属表示
-このリポジトリは [Binder](https://mybinder.readthedocs.io/en/latest/about.html) プロジェクトを利用しています。Binder は [Google Cloud Platform](https://cloud.google.com/)、[OVH](https://www.ovh.com/world/)、[GESIS Notebooks](https://notebooks.gesis.org)、[Turing Institute](https://www.turing.ac.uk) の手厚い支援を受けています。
+このリポジトリは [Binder](https://mybinder.readthedocs.io/en/latest/about.html) プロジェクトを利用しています。Binder は [Google Cloud Platform](https://cloud.google.com/)、[OVH](https://www.ovh.com/world/)、[GESIS Notebooks](https://notebooks.gesis.org)、[Turing Institute](https://www.turing.ac.uk) の支援を受けています。
 
 
 ## データへの帰属表示
 
-- 金融データは [Alpha Vantage](https://www.alphavantage.co) により提供されています。このコースはもともと [IEX Cloud](https://iexcloud.io) を使用していましたが、IEX Cloud は2024年8月31日に完全にサービスを終了したため、影響を受けるノートブックは Alpha Vantage の API へ移行しました。ご自身の API キーの設定方法は [.env.example](.env.example) をご覧ください。
-- 空港と路線のデータは [OpenFlights.org](https://openflights.org/data.html#license) により提供されています
+- 金融データは [Alpha Vantage](https://www.alphavantage.co) の提供です。このコースは当初 [IEX Cloud](https://iexcloud.io) を使っていましたが、IEX Cloud は2024年8月31日にサービスを終了しました。対象のノートブックは Alpha Vantage の API に移行済みです。自分の API キーの設定方法は [.env.example](.env.example) を見てください。
+- 空港と路線のデータは [OpenFlights.org](https://openflights.org/data.html#license) の提供です
 
-このリポジトリにおける IEX Cloud、Alpha Vantage、その他のサードパーティのプラットフォーム、製品、データ、API プロバイダへの言及は、説明と教育のみを目的としたものであり、J.P. Morgan Chase & Co. またはその関連会社による当該製品や企業の推奨と解釈されるべきではありません。
+このリポジトリで IEX Cloud、Alpha Vantage、その他のサードパーティのプラットフォーム、製品、データ、API プロバイダに触れているのは、説明と教育のためだけです。J.P. Morgan Chase & Co. やその関連会社が、その製品や企業を推奨していると受け取らないでください。
 
 
 ## ライセンス
-このソフトウェアは Apache 2.0 ライセンスの下でライセンスされています。詳細は [LICENSE](LICENSE) ファイルをご覧ください。
+このソフトウェアは Apache 2.0 ライセンスで提供しています。詳しくは [LICENSE](LICENSE) ファイルを見てください。
