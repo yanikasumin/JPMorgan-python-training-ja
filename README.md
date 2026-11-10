@@ -1,6 +1,6 @@
 <img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J_P_Morgan_Logo_2008_1.svg/1280px-J_P_Morgan_Logo_2008_1.svg.png">
 
-# Python Training（Python 研修）
+# Python Training 日本語版（Python 研修）
 **この Python 研修は、JPMorgan のビジネスアナリストとトレーダー、および一部のクライアントを対象としています。**
 
 > **日本語版について**: このリポジトリは、[jpmorganchase/python-training](https://github.com/jpmorganchase/python-training) を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。
