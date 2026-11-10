@@ -7964,10 +7964,10 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>コードを書く前に、Jupyter とは何か、なぜ Jupyter を使うのか、なぜ Python なのかを簡単に説明します。</p>
-<p>Jupyter は3つの部分でできています。カーネル、Web サーバー、ノートブックアプリです。コードはすべてカーネルに送られ、カーネル上で実行されます。Web サーバーは、カーネルとノートブックの間でコードと実行結果をやり取りします。ノートブックアプリは、サーバー上で実行したコードの結果を表示するためのものです。コードの共有がしやすく、環境を統一できるなど、ほかにも多くの機能があります。詳しくは、<a href="https://jupyter.org">Project Jupyter の紹介ページ</a>、<a href="https://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">nature の記事</a>、<a href="https://www.oreilly.com/ideas/what-is-jupyter">O'Reilly の記事</a>、<a href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">Jupyter のドキュメント</a>をご覧ください。なお、Jupyter ノートブックで実行できるのは Python のコード<strong>だけではありません</strong>。</p>
+<p>Jupyter は3つの部分でできています。<a class="term-link" href="#gloss-kernel">カーネル</a>、Web サーバー、ノートブックアプリです。コードはすべてカーネルに送られ、カーネル上で実行されます。Web サーバーは、カーネルとノートブックの間でコードと実行結果をやり取りします。ノートブックアプリは、サーバー上で実行したコードの結果を表示するためのものです。コードの共有がしやすく、環境を統一できるなど、ほかにも多くの機能があります。詳しくは、<a href="https://jupyter.org">Project Jupyter の紹介ページ</a>、<a href="https://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">nature の記事</a>、<a href="https://www.oreilly.com/ideas/what-is-jupyter">O'Reilly の記事</a>、<a href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html">Jupyter のドキュメント</a>をご覧ください。なお、Jupyter ノートブックで実行できるのは Python のコード<strong>だけではありません</strong>。</p>
 <p>Python は数十年前からある言語ですが、<a href="https://bit.ly/2u1z6gh">近年</a>人気が高まっています。そのため、まず Python で開発されるプロジェクトも増えています。Python には強いオープンソース文化もあります。</p>
 <p>では、コードを書きましょう。まず覚えるのは、ノートブックでコードを実行する方法です（Ctrl + Enter）。</p>
-<p>簡単な演算を試してみましょう。下にあるコード入力欄（例： [1]）を「セル」と呼びます。</p>
+<p>簡単な演算を試してみましょう。下にあるコード入力欄（例： [1]）を「<a class="term-link" href="#gloss-cell">セル</a>」と呼びます。</p>
 </div>
 </div>
 </div>
@@ -8022,7 +8022,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Python では、ほかの言語のように変数の型を宣言する必要がありません。各オブジェクトの型は、<code>type</code> で調べられます。</p>
+<p>Python では、ほかの言語のように<a class="term-link" href="#gloss-variable">変数</a>の<a class="term-link" href="#gloss-data-type">型</a>を宣言する必要がありません。各オブジェクトの型は、<code>type</code> で調べられます。</p>
 </div>
 </div>
 </div>
@@ -8100,5 +8100,5 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-dataframe">DataFrame</dt><dd>pandas の表形式のデータ。行と列で構成され、列ごとに異なる型の値を持てます。</dd><dt id="gloss-series">Series</dt><dd>pandas の1列分のデータ。インデックス（ラベル）と値の組になっています。DataFrame は Series の集まりとも見られます。</dd><dt id="gloss-index">インデックス</dt><dd>行や列を指すラベルのこと。データの位置を指定したり、対応づけたりするために使います。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="0_best_practices.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">0. 科学計算のためのベストプラクティス</span></a><a class="pager-btn next" href="2_straddle.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">2. 例1：ストラドルの価格計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-kernel">カーネル</dt><dd>ノートブックのコードを実際に実行するプログラム。セルを実行すると、コードはカーネルに送られて処理されます。</dd><dt id="gloss-cell">セル</dt><dd>ノートブックの入力欄の単位。コードや文章をセルごとに書いて、1つずつ実行できます。</dd><dt id="gloss-data-type">型</dt><dd>値の種類のこと（整数、文字列、リストなど）。Python では変数の型を宣言する必要はなく、値に応じて自動で決まります。</dd><dt id="gloss-variable">変数</dt><dd>値に名前をつけて使い回せるようにしたもの。プログラムの中で値を保持します。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="0_best_practices.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">0. 科学計算のためのベストプラクティス</span></a><a class="pager-btn next" href="2_straddle.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">2. 例1：ストラドルの価格計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

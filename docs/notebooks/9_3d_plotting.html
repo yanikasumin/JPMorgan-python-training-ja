@@ -7950,7 +7950,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <li>高さ: <a class="term-link" href="#gloss-yield">利回り</a>（%）</li>
 </ul>
 <p>イールドカーブは通常、右上がりの曲線です。それを25年分並べると面になり、金利環境の変化が一望できます。面全体が時代とともに低くなっていく様子が、長期の金利低下そのものです。短期側（手前）が長期側より高くなる箇所は「<a class="term-link" href="#gloss-inverted-yield">逆イールド</a>」で、景気後退の前触れとして知られます。そういう時期が面の形に現れていることも読み取れます。</p>
-<p>データは <code>../data/yield_curve.csv</code> です。列の構成は次のとおりで、描画ライブラリに渡す形に最初から整えられています。</p>
+<p>データは <code>../data/yield_curve.csv</code> です。列の構成は次のとおりで、描画<a class="term-link" href="#gloss-library">ライブラリ</a>に渡す形に最初から整えられています。</p>
 <ul>
 <li><code>x</code> 列: 期間のラベル（先頭の11行にだけ入っている）</li>
 <li><code>y</code> 列: 日付</li>
@@ -8180,7 +8180,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <li><code>trace1</code>: 利回りの面そのもの（Surface）</li>
 <li><code>trace2</code>: 面の手前の縁に沿う濃い線。最も短い期間の利回りの推移だけをなぞっています</li>
 </ul>
-<p>線をわざわざ継ぎはぎしているのには理由があります。最短の1か月物にあたる列 <code>z[0]</code> は、1990年1月2日から2001年7月30日までの2,899行が文字列 <code>"None"</code>、つまり値がありません。当時はその期間の系列自体が存在しなかったためです。そこでコードは、値のない期間は次の列 <code>z[1]</code>（3か月物）で代用し、2001年7月31日以降は <code>z[0]</code>（1か月物）に切り替えて、1本の線につないでいます。</p>
+<p>線をわざわざ継ぎはぎしているのには理由があります。最短の1か月物にあたる列 <code>z[0]</code> は、1990年1月2日から2001年7月30日までの2,899行が<a class="term-link" href="#gloss-string">文字列</a> <code>"None"</code>、つまり値がありません。当時はその期間の系列自体が存在しなかったためです。そこでコードは、値のない期間は次の列 <code>z[1]</code>（3か月物）で代用し、2001年7月31日以降は <code>z[0]</code>（1か月物）に切り替えて、1本の線につないでいます。</p>
 <p>中・長期側の列にも欠けた期間があります（<code>z[9]</code> で939行、<code>z[10]</code> で994行が <code>"None"</code>）。文字列は数値として扱えないので、その箇所は面に穴が開いた状態で描かれます。</p>
 <p>なお <code>lighting</code> や <code>colorscale</code> は見た目の調整です。意味を持つのは、軸と値の対応だけです。</p>
 </div>
@@ -8266,5 +8266,5 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-yield-curve">イールドカーブ</dt><dd>債券の利回りを、残存期間の順に並べて結んだ曲線。通常は期間が長いほど利回りが高い、右上がりの形になります。</dd><dt id="gloss-inverted-yield">逆イールド</dt><dd>短期の利回りが長期を上回る状態。イールドカーブが右下がりになり、景気後退の前兆とされます。</dd><dt id="gloss-yield">利回り</dt><dd>投資額に対して得られる収益の割合。債券では、利息と価格から決まります。</dd><dt id="gloss-term-spread">長短金利差</dt><dd>長期金利から短期金利を引いた差。マイナスになると逆イールドです。</dd><dt id="gloss-time-to-maturity">残存期間</dt><dd>債券が満期を迎えるまでの期間の長さ。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="8_altman_z_double_prime.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a><span class="pager-spacer"></span></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-yield-curve">イールドカーブ</dt><dd>債券の利回りを、残存期間の順に並べて結んだ曲線。通常は期間が長いほど利回りが高い、右上がりの形になります。</dd><dt id="gloss-inverted-yield">逆イールド</dt><dd>短期の利回りが長期を上回る状態。イールドカーブが右下がりになり、景気後退の前兆とされます。</dd><dt id="gloss-yield">利回り</dt><dd>投資額に対して得られる収益の割合。債券では、利息と価格から決まります。</dd><dt id="gloss-term-spread">長短金利差</dt><dd>長期金利から短期金利を引いた差。マイナスになると逆イールドです。</dd><dt id="gloss-time-to-maturity">残存期間</dt><dd>債券が満期を迎えるまでの期間の長さ。</dd><dt id="gloss-string">文字列</dt><dd>文字の並びを表すデータの型。プログラムでは数値と区別して扱います。この章のデータでは、値がない箇所が "None" という文字列で入っています。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。plotly や matplotlib がその例です。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="8_altman_z_double_prime.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a><span class="pager-spacer"></span></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

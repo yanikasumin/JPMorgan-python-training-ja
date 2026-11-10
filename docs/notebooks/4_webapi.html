@@ -7967,7 +7967,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <p>API の応答は、機械が読みやすい形式で返ってきます。接続の方式も決まっているため、安定してデータを取得できます。</p>
 <p>API は数多く公開されています。利用に開発者キーの登録が必要なものもあります。たとえば <a href="https://research.stlouisfed.org/docs/api/">セントルイス連邦準備銀行の API</a> です。無料で使えるものもあります。たとえば <a href="https://www.coindesk.com/api">Coindesk の API</a> です。API を探すときは、<a href="https://www.programmableweb.com/apis/directory">ProgrammableWeb のディレクトリ</a> が役立ちます。</p>
 <h2 id="%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E5%8A%9B%E3%81%AB%E3%81%AF%E3%80%81%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E8%B2%AC%E4%BB%BB%E3%81%8C%E4%BC%B4%E3%81%84%E3%81%BE%E3%81%99">大いなる力には、大いなる責任が伴います<a class="anchor-link" href="#%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E5%8A%9B%E3%81%AB%E3%81%AF%E3%80%81%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E8%B2%AC%E4%BB%BB%E3%81%8C%E4%BC%B4%E3%81%84%E3%81%BE%E3%81%99">¶</a></h2><p>プログラムから Web サイトにアクセスするときも、マナーを守って使いましょう。</p>
-<p>ここでは、Coindesk の API でビットコインの日次価格を取得します。Coindesk の API は、他の多くの API と同じく、<a class="term-link" href="#gloss-json">JSON</a>（JavaScript Object Notation）形式でデータを返します。JSON は、そのまま DataFrame に変換できます。使うライブラリは <code>json</code> と <code>requests</code> です。</p>
+<p>ここでは、Coindesk の API でビットコインの日次価格を取得します。Coindesk の API は、他の多くの API と同じく、JSON（JavaScript Object Notation）形式でデータを返します。JSON は、そのまま DataFrame に変換できます。使う<a class="term-link" href="#gloss-library">ライブラリ</a>は <code>json</code> と <code>requests</code> です。</p>
 </div>
 </div>
 </div>
@@ -8010,7 +8010,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>修正（日本語版独自）: この API は終了しています</strong></p>
 <p>原文が使う CoinDesk の Bitcoin Price Index API は、提供が終了しました。ドメイン自体が応答しないため、上のセルは現在は実行できません（2026年11月に確認）。原文のセルは記録として残します。</p>
-<p>代わりに、キーなしで使えて、同じ流れ（JSON を取得し、DataFrame にして描く）をたどれる例として、為替レートの Frankfurter API を使います。題材はビットコイン価格からドル円レートに変わりますが、この章の要点は JSON の扱い方なので、読み替えで対応できます。</p>
+<p>代わりに、キーなしで使えて、同じ流れ（<a class="term-link" href="#gloss-json">JSON</a> を取得し、DataFrame にして描く）をたどれる例として、為替レートの Frankfurter API を使います。題材はビットコイン価格からドル円レートに変わりますが、この章の要点は JSON の扱い方なので、読み替えで対応できます。</p>
 </div>
 </div>
 </div>
@@ -8358,7 +8358,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>これを pandas の DataFrame に変換します。</p>
-<p>pandas には <code>read_json</code> という関数もあります。ただし、JSON の構造によっては使いにくい場合があります。</p>
+<p>pandas には <code>read_json</code> という<a class="term-link" href="#gloss-function">関数</a>もあります。ただし、JSON の構造によっては使いにくい場合があります。</p>
 </div>
 </div>
 </div>
@@ -8410,5 +8410,5 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-api">API</dt><dd>プログラム同士がデータをやり取りするための窓口。決まった形式でリクエストを送ると、機械が読みやすい形でデータが返ってきます。</dd><dt id="gloss-json">JSON</dt><dd>データを表すための軽いテキスト形式。キーと値の組で構造を表し、Web API の応答で広く使われます。</dd><dt id="gloss-endpoint">エンドポイント</dt><dd>API の個々の窓口となる URL のこと。欲しいデータごとに場所が決まっています。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="3_flights.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">3. 例2：ファイルを扱う</span></a><a class="pager-btn next" href="5_website.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">5. Web サイトからデータを取得する</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-api">API</dt><dd>プログラム同士がデータをやり取りするための窓口。決まった形式でリクエストを送ると、機械が読みやすい形でデータが返ってきます。</dd><dt id="gloss-json">JSON</dt><dd>データを表すための軽いテキスト形式。キーと値の組で構造を表し、Web API の応答で広く使われます。</dd><dt id="gloss-endpoint">エンドポイント</dt><dd>API の個々の窓口となる URL のこと。欲しいデータごとに場所が決まっています。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。requests や pandas がその例です。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="3_flights.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">3. 例2：ファイルを扱う</span></a><a class="pager-btn next" href="5_website.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">5. Web サイトからデータを取得する</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

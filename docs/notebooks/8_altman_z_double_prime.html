@@ -8000,7 +8000,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <li>Alpha Vantage の API から、IBM の損益計算書・貸借対照表・<a class="term-link" href="#gloss-market-cap">時価総額</a>を取得する</li>
 <li>財務の数値を、上の式の $x_1$〜$x_4$ に当てはめる</li>
 <li>係数（6.56、3.26、6.72、1.05）を掛けて合計し、Z'' を出す</li>
-<li>計算を関数にまとめ、最後に Z'' から通常の信用格付けへの換算も行う</li>
+<li>計算を<a class="term-link" href="#gloss-function">関数</a>にまとめ、最後に Z'' から通常の信用格付けへの換算も行う</li>
 </ol>
 </div>
 </div>
@@ -8412,7 +8412,7 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 <li><a class="term-link" href="#gloss-ebit">EBIT</a> は、項目がある企業では営業利益（OperatingIncomeLoss）を使い、ない企業では「税引前利益 ＋ 支払利息」で近似します</li>
 </ul>
 <p>数値は開示書類の申告そのままなので、Alpha Vantage の正規化データとは細部が異なり、結果も完全には一致しません。</p>
-<p>なお、SEC のフェアアクセス方針により、アクセスの際は User-Agent で名前とメールアドレスを名乗る必要があります。これはキーや登録とは別で、SEC 側が求める作法です。コードでは環境変数 <code>SEC_USER_AGENT</code> から読むようにしてあります。</p>
+<p>なお、SEC のフェアアクセス方針により、アクセスの際は User-Agent で名前とメールアドレスを名乗る必要があります。これはキーや登録とは別で、SEC 側が求める作法です。コードでは<a class="term-link" href="#gloss-environment-variable">環境変数</a> <code>SEC_USER_AGENT</code> から読むようにしてあります。</p>
 </div>
 </div>
 </div>
@@ -8543,5 +8543,5 @@ $$ x_4 = \textrm{株式時価総額 / 負債総額} $$</p>
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-working-capital">運転資本</dt><dd>流動資産から流動負債を差し引いたもの。日々の事業を回すための余力を表します。</dd><dt id="gloss-retained-earnings">利益剰余金</dt><dd>企業が過去に稼いだ利益のうち、配当などで外に出ず、社内に残っている累計額。</dd><dt id="gloss-ebit">EBIT</dt><dd>利払前・税引前利益。借入の利息と税金を差し引く前の、本業の稼ぐ力を表します。</dd><dt id="gloss-market-cap">時価総額</dt><dd>株価 × 発行済株式数。市場がその企業全体につけた値段です。</dd><dt id="gloss-credit-rating">信用格付け</dt><dd>企業や債券が約束どおり返済する確からしさを、AAA から D などの記号で表した評価。</dd><dt id="gloss-default">デフォルト</dt><dd>借りた側が返済の約束を守れなくなること。債務不履行ともいいます。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="7_advanced_plotting.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">7. グラフ描画の応用：matplotlib の先へ</span></a><a class="pager-btn next" href="9_3d_plotting.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">9. 9_3d_plotting</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-working-capital">運転資本</dt><dd>流動資産から流動負債を差し引いたもの。日々の事業を回すための余力を表します。</dd><dt id="gloss-retained-earnings">利益剰余金</dt><dd>企業が過去に稼いだ利益のうち、配当などで外に出ず、社内に残っている累計額。</dd><dt id="gloss-ebit">EBIT</dt><dd>利払前・税引前利益。借入の利息と税金を差し引く前の、本業の稼ぐ力を表します。</dd><dt id="gloss-market-cap">時価総額</dt><dd>株価 × 発行済株式数。市場がその企業全体につけた値段です。</dd><dt id="gloss-credit-rating">信用格付け</dt><dd>企業や債券が約束どおり返済する確からしさを、AAA から D などの記号で表した評価。</dd><dt id="gloss-default">デフォルト</dt><dd>借りた側が返済の約束を守れなくなること。債務不履行ともいいます。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-environment-variable">環境変数</dt><dd>プログラムの外側（OS）から渡す設定値のこと。コードを書き換えずに、動かす環境ごとに値を変えられます。この章では SEC への連絡先を渡すために使います。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="7_advanced_plotting.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">7. グラフ描画の応用：matplotlib の先へ</span></a><a class="pager-btn next" href="9_3d_plotting.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">9. 9_3d_plotting</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>
