@@ -7,7 +7,8 @@
 >
 > 日本語版の翻訳・公開： 霞ヶ関京  
 > 連絡先： GitHub [@yanikasumin](https://github.com/yanikasumin)  
-> X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）
+> X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）  
+> YouTube [@KASUMI_MOF](https://www.youtube.com/@KASUMI_MOF)
 
 ![GitHub](https://img.shields.io/github/license/jpmorganchase/python-training?style=flat-square)
 [![Contact](https://img.shields.io/badge/Contact-Email-lightgrey?style=flat-square)](mailto:open_source@jpmorgan.com)
