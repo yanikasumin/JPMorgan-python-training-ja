@@ -7887,6 +7887,12 @@ pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
 .jp-InputPrompt, .jp-OutputPrompt { color: #93A5B8 !important; font-size: 11.5px; font-family: var(--mono); }
 .jp-OutputArea-output pre { font-size: 13px; font-family: var(--mono); }
 
+/* --- output (DataFrame) tables: scroll inside the cell, never stretch the page --- */
+.jp-OutputArea-output, .jp-OutputArea-child, .jp-RenderedHTMLCommon { overflow-x: auto !important; }
+.jp-OutputArea-output table { width: max-content; max-width: none; border-collapse: collapse; font-size: 13px; }
+.jp-OutputArea-output th, .jp-OutputArea-output td { border: 1px solid var(--line); padding: 5px 9px; white-space: nowrap; }
+.jp-OutputArea-output thead th { background: var(--panel2); }
+
 /* --- pager: large two-line buttons, text never wraps (ellipsis) --- */
 .pager { max-width: 920px; margin: 16px auto 4px; padding: 0; display: flex; gap: 12px; }
 .pager-btn {
@@ -7986,10 +7992,10 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Common and formal names</th>
-<th>Membership within the UN System[a]</th>
-<th>Sovereignty dispute[b]</th>
-<th>Further information on status and recognition of sovereignty[d]</th>
+<th>通称と正式名称</th>
+<th>国連システムにおける地位[a]</th>
+<th>主権をめぐる争い[b]</th>
+<th>地位と主権の承認に関する補足情報[d]</th>
 </tr>
 </thead>
 <tbody>
@@ -8002,133 +8008,133 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>1</th>
-<td>UN member states and observer states ↓</td>
+<td>国連加盟国とオブザーバー国 ↓</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Abkhazia</td>
+<td>アブハジア</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Afghanistan – Islamic Republic of Afghanistan</td>
-<td>UN member state</td>
+<td>アフガニスタン – アフガニスタン・イスラム共和国</td>
+<td>国連加盟国</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Albania – Republic of Albania</td>
+<td>アルバニア – アルバニア共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>5</th>
-<td>Algeria – People's Democratic Republic of Algeria</td>
+<td>アルジェリア – アルジェリア人民民主共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>6</th>
-<td>Andorra – Principality of Andorra</td>
+<td>アンドラ – アンドラ公国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Andorra is a co-principality in which the offi...</td>
 </tr>
 <tr>
 <th>7</th>
-<td>Angola – Republic of Angola</td>
+<td>アンゴラ – アンゴラ共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>8</th>
-<td>Antigua and Barbuda</td>
+<td>アンティグア・バーブーダ</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Antigua and Barbuda is a Commonwealth realm[e]...</td>
+<td>アンティグア・バーブーダは英連邦王国である[e]...</td>
 </tr>
 <tr>
 <th>9</th>
-<td>Argentina – Argentine Republic[g]</td>
+<td>アルゼンチン – アルゼンチン共和国[g]</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Argentina is a federation of 23 provinces and ...</td>
 </tr>
 <tr>
 <th>10</th>
-<td>Armenia – Republic of Armenia</td>
+<td>アルメニア – アルメニア共和国</td>
 <td>NaN</td>
-<td>Not recognised by Pakistan.</td>
+<td>パキスタンに承認されていない。</td>
 <td>Armenia is not recognised by Pakistan due to t...</td>
 </tr>
 <tr>
 <th>11</th>
-<td>Artsakh</td>
+<td>アルツァフ</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>12</th>
-<td>Australia – Commonwealth of Australia</td>
+<td>オーストラリア – オーストラリア連邦</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Australia is a Commonwealth realm[e] and a fed...</td>
 </tr>
 <tr>
 <th>13</th>
-<td>Austria – Republic of Austria</td>
+<td>オーストリア – オーストリア共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Member of the European Union.[c] Austria is a ...</td>
 </tr>
 <tr>
 <th>14</th>
-<td>Azerbaijan – Republic of Azerbaijan</td>
+<td>アゼルバイジャン – アゼルバイジャン共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Azerbaijan contains one autonomous region, Nak...</td>
 </tr>
 <tr>
 <th>15</th>
-<td>Bahamas, The – Commonwealth of The Bahamas[8]</td>
+<td>バハマ – バハマ国[8]</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>The Bahamas is a Commonwealth realm.[e]</td>
+<td>バハマは英連邦王国である。[e]</td>
 </tr>
 <tr>
 <th>16</th>
-<td>Bahrain – Kingdom of Bahrain</td>
+<td>バーレーン – バーレーン王国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>17</th>
-<td>Bangladesh – People's Republic of Bangladesh</td>
+<td>バングラデシュ – バングラデシュ人民共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>18</th>
-<td>Barbados</td>
+<td>バルバドス</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Barbados is a Commonwealth realm.[e]</td>
+<td>バルバドスは英連邦王国である。[e]</td>
 </tr>
 <tr>
 <th>19</th>
-<td>Belarus – Republic of Belarus</td>
+<td>ベラルーシ – ベラルーシ共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -8253,10 +8259,10 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Common and formal names</th>
-<th>Membership within the UN System[a]</th>
-<th>Sovereignty dispute[b]</th>
-<th>Further information on status and recognition of sovereignty[d]</th>
+<th>通称と正式名称</th>
+<th>国連システムにおける地位[a]</th>
+<th>主権をめぐる争い[b]</th>
+<th>地位と主権の承認に関する補足情報[d]</th>
 </tr>
 </thead>
 <tbody>
@@ -8269,133 +8275,133 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>1</th>
-<td>UN member states and observer states ↓</td>
+<td>国連加盟国とオブザーバー国 ↓</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Abkhazia</td>
+<td>アブハジア</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Afghanistan – Islamic Republic of Afghanistan</td>
-<td>UN member state</td>
+<td>アフガニスタン – アフガニスタン・イスラム共和国</td>
+<td>国連加盟国</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Albania – Republic of Albania</td>
+<td>アルバニア – アルバニア共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>5</th>
-<td>Algeria – People's Democratic Republic of Algeria</td>
+<td>アルジェリア – アルジェリア人民民主共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>6</th>
-<td>Andorra – Principality of Andorra</td>
+<td>アンドラ – アンドラ公国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Andorra is a co-principality in which the offi...</td>
 </tr>
 <tr>
 <th>7</th>
-<td>Angola – Republic of Angola</td>
+<td>アンゴラ – アンゴラ共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>8</th>
-<td>Antigua and Barbuda</td>
+<td>アンティグア・バーブーダ</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Antigua and Barbuda is a Commonwealth realm[e]...</td>
+<td>アンティグア・バーブーダは英連邦王国である[e]...</td>
 </tr>
 <tr>
 <th>9</th>
-<td>Argentina – Argentine Republic[g]</td>
+<td>アルゼンチン – アルゼンチン共和国[g]</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Argentina is a federation of 23 provinces and ...</td>
 </tr>
 <tr>
 <th>10</th>
-<td>Armenia – Republic of Armenia</td>
+<td>アルメニア – アルメニア共和国</td>
 <td>NaN</td>
-<td>Not recognised by Pakistan.</td>
+<td>パキスタンに承認されていない。</td>
 <td>Armenia is not recognised by Pakistan due to t...</td>
 </tr>
 <tr>
 <th>11</th>
-<td>Artsakh</td>
+<td>アルツァフ</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>12</th>
-<td>Australia – Commonwealth of Australia</td>
+<td>オーストラリア – オーストラリア連邦</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Australia is a Commonwealth realm[e] and a fed...</td>
 </tr>
 <tr>
 <th>13</th>
-<td>Austria – Republic of Austria</td>
+<td>オーストリア – オーストリア共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Member of the European Union.[c] Austria is a ...</td>
 </tr>
 <tr>
 <th>14</th>
-<td>Azerbaijan – Republic of Azerbaijan</td>
+<td>アゼルバイジャン – アゼルバイジャン共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>Azerbaijan contains one autonomous region, Nak...</td>
 </tr>
 <tr>
 <th>15</th>
-<td>Bahamas, The – Commonwealth of The Bahamas[8]</td>
+<td>バハマ – バハマ国[8]</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>The Bahamas is a Commonwealth realm.[e]</td>
+<td>バハマは英連邦王国である。[e]</td>
 </tr>
 <tr>
 <th>16</th>
-<td>Bahrain – Kingdom of Bahrain</td>
+<td>バーレーン – バーレーン王国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>17</th>
-<td>Bangladesh – People's Republic of Bangladesh</td>
+<td>バングラデシュ – バングラデシュ人民共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>18</th>
-<td>Barbados</td>
+<td>バルバドス</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Barbados is a Commonwealth realm.[e]</td>
+<td>バルバドスは英連邦王国である。[e]</td>
 </tr>
 <tr>
 <th>19</th>
-<td>Belarus – Republic of Belarus</td>
+<td>ベラルーシ – ベラルーシ共和国</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -8489,19 +8495,19 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Date</th>
-<th>Open</th>
-<th>High</th>
-<th>Low</th>
-<th>Close*</th>
-<th>Adj Close**</th>
-<th>Volume</th>
+<th>日付</th>
+<th>始値</th>
+<th>高値</th>
+<th>安値</th>
+<th>終値※</th>
+<th>調整後終値※※</th>
+<th>出来高</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>Apr 30, 2020</td>
+<td>2020年4月30日</td>
 <td>95.60</td>
 <td>96.84</td>
 <td>94.55</td>
@@ -8511,7 +8517,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>1</th>
-<td>Apr 29, 2020</td>
+<td>2020年4月29日</td>
 <td>99.08</td>
 <td>99.45</td>
 <td>97.27</td>
@@ -8521,7 +8527,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>2</th>
-<td>Apr 28, 2020</td>
+<td>2020年4月28日</td>
 <td>97.81</td>
 <td>98.36</td>
 <td>95.03</td>
@@ -8531,7 +8537,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>3</th>
-<td>Apr 27, 2020</td>
+<td>2020年4月27日</td>
 <td>91.94</td>
 <td>95.63</td>
 <td>91.54</td>
@@ -8541,7 +8547,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>4</th>
-<td>Apr 24, 2020</td>
+<td>2020年4月24日</td>
 <td>90.64</td>
 <td>91.10</td>
 <td>88.49</td>
@@ -8607,19 +8613,19 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Date</th>
-<th>Open</th>
-<th>High</th>
-<th>Low</th>
-<th>Close*</th>
-<th>Adj Close**</th>
-<th>Volume</th>
+<th>日付</th>
+<th>始値</th>
+<th>高値</th>
+<th>安値</th>
+<th>終値※</th>
+<th>調整後終値※※</th>
+<th>出来高</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>Apr 30, 2020</td>
+<td>2020年4月30日</td>
 <td>95.60</td>
 <td>96.84</td>
 <td>94.55</td>
@@ -8629,7 +8635,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>1</th>
-<td>Apr 29, 2020</td>
+<td>2020年4月29日</td>
 <td>99.08</td>
 <td>99.45</td>
 <td>97.27</td>
@@ -8639,7 +8645,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>2</th>
-<td>Apr 28, 2020</td>
+<td>2020年4月28日</td>
 <td>97.81</td>
 <td>98.36</td>
 <td>95.03</td>
@@ -8649,7 +8655,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>3</th>
-<td>Apr 27, 2020</td>
+<td>2020年4月27日</td>
 <td>91.94</td>
 <td>95.63</td>
 <td>91.54</td>
@@ -8659,7 +8665,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>4</th>
-<td>Apr 24, 2020</td>
+<td>2020年4月24日</td>
 <td>90.64</td>
 <td>91.10</td>
 <td>88.49</td>
@@ -9163,7 +9169,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Name</th>
+<th>名前</th>
 </tr>
 </thead>
 <tbody>
@@ -9253,7 +9259,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 </tr>
 <tr>
 <th>21</th>
-<td>Total</td>
+<td>合計</td>
 </tr>
 </tbody>
 </table>
@@ -9301,7 +9307,7 @@ footer.site-foot a { color: var(--navy); text-decoration: none; white-space: now
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Name</th>
+<th>名前</th>
 <th>FGM</th>
 <th>FGA</th>
 <th>FG%</th>
