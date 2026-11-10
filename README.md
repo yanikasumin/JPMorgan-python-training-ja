@@ -6,7 +6,7 @@
 > **日本語版について**: このリポジトリは、[jpmorganchase/python-training](https://github.com/jpmorganchase/python-training) を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。
 >
 > 日本語版の翻訳・公開： 霞ヶ関京  
-> 連絡先： GitHub [yanikasumin/JPMorgan-python-training-ja](https://github.com/yanikasumin/JPMorgan-python-training-ja)  
+> 連絡先： GitHub [@yanikasumin](https://github.com/yanikasumin)  
 > X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）  
 > YouTube [@KASUMI_MOF](https://www.youtube.com/@KASUMI_MOF)
 
