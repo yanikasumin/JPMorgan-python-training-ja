@@ -8009,6 +8009,7 @@ result.content
 <p><strong>修正（日本語版独自）: この API は終了しています</strong></p>
 <p>原文が使う CoinDesk の Bitcoin Price Index API は、提供が終了しました。<a class="term-link" href="#gloss-domain">ドメイン</a>自体が応答しないため、上のセルは現在は実行できません（2026年11月に確認）。原文のセルは記録として残します。</p>
 <p>代わりに、キーなしで使えて、同じ流れ（JSON を取得し、DataFrame にして描く）をたどれる例として、<a class="term-link" href="#gloss-fx-rate">為替レート</a>の Frankfurter API を使います。題材はビットコイン価格からドル円レートに変わりますが、この章の要点は JSON の扱い方なので、読み替えで対応できます。</p>
+<p>なお、Frankfurter が返すデータには、指定した期間の直前の営業日が含まれることがあります。この例でも、2019年1月1日が休日のため、直前の営業日である2018年12月31日のレートが先頭に入っています。</p>
 </div>
 </div>
 </div>
@@ -8280,7 +8281,7 @@ result.content
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>もう少し詳しく見てみましょう。データ取得で押さえるポイントはいくつかあります。</p>
-<p>API ごとに、返ってくるデータの構造は違います。まずブラウザで URL を開いてみると、返ってくる内容がそのまま確認できることが多いです。試してみましょう。</p>
+<p>API ごとに、返ってくるデータの構造は違います。原文では、まずブラウザで URL を開いて、返ってくる内容を確認していました。以下は当時の URL と応答の記録です（この API は現在は利用できません）。</p>
 <p><a href="https://api.coindesk.com/v1/bpi/historical/close.json?start=2019-01-01&amp;end=2019-07-01">https://api.coindesk.com/v1/bpi/historical/close.json?start=2019-01-01&amp;end=2019-07-01</a></p>
 </div>
 </div>
@@ -8292,7 +8293,7 @@ result.content
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>この URL では、次の結果が返ってきます。</p>
+<p>この URL では、当時、次の結果が返ってきていました。</p>
 <pre><code>{
     "bpi":
     {
