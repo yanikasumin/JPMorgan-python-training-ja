@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Training 日本語版</title>
+
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+.jp-Notebook, #notebook-container, main.site-main {
+  width: auto !important; max-width: 920px !important;
+  margin-left: auto !important; margin-right: auto !important;
+  padding-left: 14px; padding-right: 14px; box-sizing: border-box;
+}
+img, svg, video { max-width: 100% !important; height: auto; }
+pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+table { display: block; overflow-x: auto; max-width: 100%; }
+.site-nav {
+  max-width: 920px; margin: 0 auto; padding: 12px 14px 4px;
+  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+}
+.site-nav .site-title { font-size: 18px; font-weight: 700; margin: 4px 0 8px; }
+.site-nav .site-title a { color: #1a56db; text-decoration: none; }
+.site-nav ol {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  list-style: none; margin: 0 0 8px; padding: 0; font-size: 13px;
+}
+.site-nav ol a { color: #1a56db; text-decoration: none; }
+.site-nav ol a.current { font-weight: 700; color: #111; }
+.pager {
+  max-width: 920px; margin: 24px auto 40px; padding: 0 14px;
+  display: flex; justify-content: space-between; gap: 12px;
+  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px;
+}
+.pager a { color: #1a56db; text-decoration: none; }
+footer.site-foot {
+  max-width: 920px; margin: 0 auto 32px; padding: 0 14px; color: #666; font-size: 12px;
+  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+}
+@media (max-width: 700px) {
+  .jp-Notebook, #notebook-container, main.site-main { padding-left: 10px; padding-right: 10px; }
+  .site-nav ol { font-size: 12px; gap: 4px 10px; }
+}
+</style>
+
+<style>
+main.site-main { font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; }
+main.site-main pre { background: #f5f5f5; padding: 10px; }
+main.site-main code { word-break: break-all; }
+</style>
+</head>
+<body>
+<nav class="site-nav"><p class="site-title"><a href="index.html">Python Training 日本語版</a></p><ol><li><a href="notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav>
+<main class="site-main">
+<p><img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J_P_Morgan_Logo_2008_1.svg/1280px-J_P_Morgan_Logo_2008_1.svg.png"></p>
+<h1>Python Training 日本語版（Python 研修）</h1>
+<p><strong>この Python 研修は、JPMorgan のビジネスアナリストとトレーダー、および一部のクライアントを対象としています。</strong></p>
+<blockquote>
+<p><strong>日本語版について</strong>: このリポジトリは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。</p>
+</blockquote>
+<p><img alt="GitHub" src="https://img.shields.io/github/license/jpmorganchase/python-training?style=flat-square" />
+<a href="mailto:open_source@jpmorgan.com"><img alt="Contact" src="https://img.shields.io/badge/Contact-Email-lightgrey?style=flat-square" /></a></p>
+<h2>概要</h2>
+<p>このコースは、Python での数値計算とデータ可視化の入門です。コンピュータサイエンスやプログラミングの網羅的なコースではありません。ねらいは、複雑に見える題材でも、プログラミングの専門教育を受けていない人が取り組めることを、実例を通して示すことです。</p>
+<p>研修は対面形式で、J.P. Morgan のテクノロジストとトレーダーが講師を務めます。機関投資家のお客様で関心のある方は、J.P. Morgan の担当チームへお問い合わせください。</p>
+<p><a href="https://mybinder.org/v2/gh/yanikasumin/JPMorgan-python-training-ja/main?urlpath=lab"><img alt="" src="https://img.shields.io/badge/Launch-Cloud%20Instance-brightgreen?style=for-the-badge" /></a></p>
+<h2>プラットフォームへの帰属表示</h2>
+<p>このリポジトリは <a href="https://mybinder.readthedocs.io/en/latest/about.html">Binder</a> プロジェクトを利用しています。Binder は <a href="https://cloud.google.com/">Google Cloud Platform</a>、<a href="https://www.ovh.com/world/">OVH</a>、<a href="https://notebooks.gesis.org">GESIS Notebooks</a>、<a href="https://www.turing.ac.uk">Turing Institute</a> の支援を受けています。</p>
+<h2>データへの帰属表示</h2>
+<ul>
+<li>金融データは <a href="https://www.alphavantage.co">Alpha Vantage</a> の提供です。このコースは当初 <a href="https://iexcloud.io">IEX Cloud</a> を使っていましたが、IEX Cloud は2024年8月31日にサービスを終了しました。対象のノートブックは Alpha Vantage の API に移行済みです。自分の API キーの設定方法は <a href=".env.example">.env.example</a> を見てください。</li>
+<li>空港と路線のデータは <a href="https://openflights.org/data.html#license">OpenFlights.org</a> の提供です</li>
+</ul>
+<p>このリポジトリで IEX Cloud、Alpha Vantage、その他のサードパーティのプラットフォーム、製品、データ、API プロバイダに触れているのは、説明と教育のためだけです。J.P. Morgan Chase &amp; Co. やその関連会社が、その製品や企業を推奨していると受け取らないでください。</p>
+<h2>ライセンス</h2>
+<p>このソフトウェアは Apache 2.0 ライセンスで提供しています。詳しくは <a href="LICENSE">LICENSE</a> ファイルを見てください。</p>
+</main>
+<footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。</footer>
+</body>
+</html>
