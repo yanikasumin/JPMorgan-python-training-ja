@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>0_best_practices</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+<title>0. 科学計算のためのベストプラクティス | Python Training 日本語版</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
 (function() {
   function addWidgetsRenderer() {
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
@@ -7819,7 +7819,7 @@ a.anchor-link {
     white-space: normal;
   }
 </style>
-<!-- End of mermaid configuration --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!-- End of mermaid configuration --><meta name="description" content="科学計算のためのベストプラクティス — 開発環境の整え方と、読みやすいコードの作法。Git、テスト、スタイルの基本を押さえる。 JPMorgan の Python 研修教材「python-training」日本語版（翻訳・増補）のノートブック。用語解説付き。"><link rel="canonical" href="https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/0_best_practices.html"><meta property="og:title" content="0. 科学計算のためのベストプラクティス | Python Training 日本語版"><meta property="og:description" content="科学計算のためのベストプラクティス — 開発環境の整え方と、読みやすいコードの作法。Git、テスト、スタイルの基本を押さえる。 JPMorgan の Python 研修教材「python-training」日本語版（翻訳・増補）のノートブック。用語解説付き。"><meta property="og:type" content="article"><meta property="og:url" content="https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/0_best_practices.html"><meta property="og:site_name" content="Python Training 日本語版"><meta name="twitter:card" content="summary"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#FAF6EF; --panel:#FFFFFF; --panel2:#F3EDDF; --ink:#1D2732;
@@ -7958,7 +7958,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 }
 </style>
 </head>
-<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-head"><div class="inner"><p class="eyebrow">PYTHON TRAINING</p><p class="site-title"><span class="diamond"></span><a href="../index.html">Python Training 日本語版</a></p></div></header><nav class="site-nav-row"><ol><li><a class="current" href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 金融データの利用</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav><main class="page-sheet">
+<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-head"><div class="inner"><p class="eyebrow">PYTHON TRAINING</p><p class="site-title"><span class="diamond"></span><a href="../index.html">Python Training 日本語版</a></p></div></header><nav class="site-nav-row"><ol><li><a class="current" href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 金融データの利用</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 3次元プロット</a></li></ol></nav><main class="page-sheet">
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">

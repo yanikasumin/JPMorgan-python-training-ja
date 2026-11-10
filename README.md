@@ -18,6 +18,8 @@
 > X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）  
 > YouTube [@KASUMI_MOF](https://www.youtube.com/@KASUMI_MOF)
 
+**Web サイト版（用語解説付きで、そのまま読めます）**: https://yanikasumin.github.io/JPMorgan-python-training-ja/
+
 ![GitHub](https://img.shields.io/github/license/jpmorganchase/python-training?style=flat-square)
 [![Contact](https://img.shields.io/badge/Contact-Email-lightgrey?style=flat-square)](mailto:open_source@jpmorgan.com)
 
@@ -28,6 +30,23 @@
 研修は対面形式で、J.P. Morgan のテクノロジストとトレーダーが講師を務めます。機関投資家のお客様で関心のある方は、J.P. Morgan の担当チームへお問い合わせください。
 
 [![](https://img.shields.io/badge/Launch-Cloud%20Instance-brightgreen?style=for-the-badge)](https://mybinder.org/v2/gh/yanikasumin/JPMorgan-python-training-ja/main?urlpath=lab)
+
+## 章一覧
+
+0. [科学計算のためのベストプラクティス](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/0_best_practices.html) — 開発環境と読みやすいコードの作法（Git、テスト、スタイル）
+1. [Jupyter 入門](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/1_basic.html) — Python の基礎とノートブックの使い方
+2. [例1：ストラドルの価格計算](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/2_straddle.html) — オプションの価格を近似式とモンテカルロ法で計算する
+3. [例2：ファイルを扱う](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/3_flights.html) — OpenFlights の路線データを pandas で読み込み、集計する
+4. [Web API からのデータ取得](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/4_webapi.html) — API の呼び出しと JSON の整形（日本語版で API 提供終了に対応済み）
+5. [Web サイトからデータを取得する](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/5_website.html) — read_html と BeautifulSoup によるスクレイピング
+6. [金融データの利用](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/6_financial_data.html) — 原典でも未実装のプレースホルダ
+7. [グラフ描画の応用：matplotlib の先へ](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/7_advanced_plotting.html) — ボラティリティ・サーフェスなど、描画ライブラリの応用
+8. [金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/8_altman_z_double_prime.html) — 信用リスクのモデル実装（日本語版で SEC EDGAR 版を追加）
+9. [3次元プロット](https://yanikasumin.github.io/JPMorgan-python-training-ja/notebooks/9_3d_plotting.html) — 米国債イールドカーブの3次元可視化（日本語版で章として組み立て）
+
+## About (English)
+
+This is a Japanese edition of JPMorgan's [python-training](https://github.com/jpmorganchase/python-training) — translated and expanded. It teaches Python for numerical computing and data visualization with Jupyter notebooks: best practices and Git, Python basics, options pricing (straddle, Monte Carlo), pandas with OpenFlights data, web APIs and JSON, web scraping with BeautifulSoup, advanced plotting and volatility surfaces, the Altman Z'' credit-risk model (with an added keyless SEC EDGAR implementation), and 3D plotting of the US Treasury yield curve. The [website edition](https://yanikasumin.github.io/JPMorgan-python-training-ja/) adds a per-chapter glossary covering both finance and programming terms. Licensed under Apache 2.0, same as the original.
 
 ## プラットフォームへの帰属表示
 このリポジトリは [Binder](https://mybinder.readthedocs.io/en/latest/about.html) プロジェクトを利用しています。Binder は [Google Cloud Platform](https://cloud.google.com/)、[OVH](https://www.ovh.com/world/)、[GESIS Notebooks](https://notebooks.gesis.org)、[Turing Institute](https://www.turing.ac.uk) の支援を受けています。
