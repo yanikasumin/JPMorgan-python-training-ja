@@ -10,11 +10,11 @@
 
 
 ## 概要
-このコースは、Python での数値計算とデータ可視化の入門です。コンピュータサイエンスやプログラミングの網羅的なコースではありません。ねらいは、プログラミングを専門に学んだことがなくても、かなり複雑なテーマに取り組めることを実際に見せることです。
+このコースは、Python での数値計算とデータ可視化の入門です。コンピュータサイエンスやプログラミングの網羅的なコースではありません。ねらいは、複雑に見える題材でも、プログラミングの専門教育を受けていない人が取り組めることを、実例を通して示すことです。
 
 研修は対面形式で、J.P. Morgan のテクノロジストとトレーダーが講師を務めます。機関投資家のお客様で関心のある方は、J.P. Morgan の担当チームへお問い合わせください。
 
-[![](https://img.shields.io/badge/Launch-Cloud%20Instance-brightgreen?style=for-the-badge)](http://mybinder.org/v2/gh/yanikasumin/python-training/main?urlpath=lab)
+[![](https://img.shields.io/badge/Launch-Cloud%20Instance-brightgreen?style=for-the-badge)](https://mybinder.org/v2/gh/yanikasumin/JPMorgan-python-training-ja/main?urlpath=lab)
 
 ## プラットフォームへの帰属表示
 このリポジトリは [Binder](https://mybinder.readthedocs.io/en/latest/about.html) プロジェクトを利用しています。Binder は [Google Cloud Platform](https://cloud.google.com/)、[OVH](https://www.ovh.com/world/)、[GESIS Notebooks](https://notebooks.gesis.org)、[Turing Institute](https://www.turing.ac.uk) の支援を受けています。
