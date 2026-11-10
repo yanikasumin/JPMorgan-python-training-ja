@@ -7940,7 +7940,8 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の英語原文を日本語に翻訳したものです（Apache License 2.0）。コードの動作は原文から変更していません。</p>
+<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の日本語版です（Apache License 2.0）。原文の翻訳を基礎に、日本語版独自の補足・追加・修正を含む場合があり、独自の部分にはその旨を明記しています。</p>
+<p>この章は翻訳に加え、補足解説を追加しています。コードは、グラフのタイトルなど表示文字列の一部を日本語化した以外は原文のままです。</p>
 </blockquote>
 </div>
 </div>
@@ -8331,8 +8332,8 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <li><code>i</code>: 満期の列。2019年8月2日から2020年6月19日までの15時点</li>
 <li><code>d</code>: インプライド・ボラティリティの行列（15行×36列）。行が満期、列がマネーネスに対応します</li>
 </ul>
-<p>次のセルで <code>df2 = pd.DataFrame(d, columns=c, index=i)</code> と整形し、そのあとのセルで plotly の Surface として描きます。</p>
-<p>読み方としては、マネーネスが 1.0 から離れるほどボラティリティが上がる形、いわゆるボラティリティ・スマイル（スキュー）が面の凹凸に現れます。第9章のイールドカーブ・サーフェスと同じく、「2つの条件で決まる量を面で眺める」ための描き方です。</p>
+<p>次のセルで <code>df2 = pd.DataFrame(d, columns=c, index=i)</code> と整形し、そのあとのセルで <a class="term-link" href="#gloss-plotly">plotly</a> の Surface として描きます。</p>
+<p>読み方としては、マネーネスが 1.0 から離れるほどボラティリティが上がる形、いわゆるボラティリティ・<a class="term-link" href="#gloss-smile-skew">スマイル</a>（スキュー）が面の凹凸に現れます。第9章のイールドカーブ・サーフェスと同じく、「2つの条件で決まる量を面で眺める」ための描き方です。</p>
 </div>
 </div>
 </div>
@@ -8440,5 +8441,5 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-implied-volatility">インプライド・ボラティリティ</dt><dd>オプションの市場価格から逆算される、原資産の将来の変動率。市場参加者の見込みを映す指標です。</dd><dt id="gloss-vol-surface">ボラティリティ・サーフェス</dt><dd>インプライド・ボラティリティを、満期とマネーネスの2軸で並べて面として表したもの。オプション市場の歪みが形に現れます。</dd><dt id="gloss-moneyness">マネーネス</dt><dd>行使価格と原資産価格の関係を表す度合い。比率が1なら両者が等しい状態（アット・ザ・マネー）です。</dd><dt id="gloss-correlation">相関</dt><dd>2つの系列が一緒に動く度合い。1に近いほど同じ向きに、−1に近いほど逆向きに動きます。</dd><dt id="gloss-regression">回帰</dt><dd>ある変数を別の変数で説明する直線（式）を、データから求める手法。</dd><dt id="gloss-etf">ETF</dt><dd>取引所に上場している投資信託。指数などに連動し、株式と同じように売買できます。</dd><dt id="gloss-array">配列</dt><dd>数値などを順番に並べたデータの集まり。表計算の1行や1列のようなものです。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。plotly や pandas がその例です。</dd><dt id="gloss-scatter-plot">散布図</dt><dd>2つの値の組を点として平面に打った図。関係性や分布を見るために使います。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="6_financial_data.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">6. 金融データの利用</span></a><a class="pager-btn next" href="8_altman_z_double_prime.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-implied-volatility">インプライド・ボラティリティ</dt><dd>オプションの市場価格から逆算される、原資産の将来の変動率。市場参加者の見込みを映す指標です。</dd><dt id="gloss-vol-surface">ボラティリティ・サーフェス</dt><dd>インプライド・ボラティリティを、満期とマネーネスの2軸で並べて面として表したもの。オプション市場の歪みが形に現れます。</dd><dt id="gloss-moneyness">マネーネス</dt><dd>行使価格と原資産価格の関係を表す度合い。比率が1なら両者が等しい状態（アット・ザ・マネー）です。</dd><dt id="gloss-correlation">相関</dt><dd>2つの系列が一緒に動く度合い。1に近いほど同じ向きに、−1に近いほど逆向きに動きます。</dd><dt id="gloss-regression">回帰</dt><dd>ある変数を別の変数で説明する直線（式）を、データから求める手法。</dd><dt id="gloss-etf">ETF</dt><dd>取引所に上場している投資信託。指数などに連動し、株式と同じように売買できます。</dd><dt id="gloss-array">配列</dt><dd>数値などを順番に並べたデータの集まり。表計算の1行や1列のようなものです。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。plotly や pandas がその例です。</dd><dt id="gloss-scatter-plot">散布図</dt><dd>2つの値の組を点として平面に打った図。関係性や分布を見るために使います。</dd><dt id="gloss-smile-skew">スマイル／スキュー</dt><dd>インプライド・ボラティリティをマネーネスに対して描いた曲線の形のこと。口のように曲がればスマイル、傾いていればスキューと呼びます。</dd><dt id="gloss-matplotlib">matplotlib</dt><dd>Python の基本的なグラフ描画ライブラリ。多くの描画ライブラリの土台になっています。</dd><dt id="gloss-seaborn">seaborn</dt><dd>matplotlib を土台に、統計グラフを見栄えよく描くためのライブラリ。</dd><dt id="gloss-plotly">plotly</dt><dd>対話的に操作できるグラフを描くライブラリ。ブラウザ上で拡大したり、値を確認したりできます。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="6_financial_data.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">6. 金融データの利用</span></a><a class="pager-btn next" href="8_altman_z_double_prime.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語版（翻訳・増補）です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

@@ -7940,7 +7940,8 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の英語原文を日本語に翻訳したものです（Apache License 2.0）。コードの動作は原文から変更していません。</p>
+<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の日本語版です（Apache License 2.0）。原文の翻訳を基礎に、日本語版独自の補足・追加・修正を含む場合があり、独自の部分にはその旨を明記しています。</p>
+<p>この章は翻訳のみで、コードは原文から変更していません。</p>
 </blockquote>
 </div>
 </div>
@@ -7978,7 +7979,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <ul>
 <li>$\sigma$ = <a class="term-link" href="#gloss-implied-volatility">インプライド・ボラティリティ</a></li>
 <li>$T$ = <a class="term-link" href="#gloss-maturity">満期</a>までの期間</li>
-<li>$F$ = <a class="term-link" href="#gloss-underlying">原資産</a>のフォワード</li>
+<li>$F$ = <a class="term-link" href="#gloss-underlying">原資産</a>の<a class="term-link" href="#gloss-forward">フォワード</a></li>
 </ul>
 </div>
 </div>
@@ -8214,7 +8215,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>式の分母には π があります。ここまで使ってきた 3.14 は、おおまかな近似値です。もっと正確な値を使いたいところです。ライブラリ <code>numpy</code> に正確な値があります。まずインポートします。</p>
+<p>式の分母には π があります。ここまで使ってきた 3.14 は、おおまかな近似値です。もっと正確な値を使いたいところです。<a class="term-link" href="#gloss-library">ライブラリ</a> <code>numpy</code> に正確な値があります。まずインポートします。</p>
 </div>
 </div>
 </div>
@@ -8692,7 +8693,7 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>次に、平均 0、標準偏差に日次ボラティリティを指定して呼び出します。平均 0 は、ドリフトがないという意味です。満期までの日数分のリターンをまとめて作ります。</p>
+<p>次に、平均 0、標準偏差に日次ボラティリティを指定して呼び出します。平均 0 は、<a class="term-link" href="#gloss-drift">ドリフト</a>がないという意味です。満期までの日数分の<a class="term-link" href="#gloss-return">リターン</a>をまとめて作ります。</p>
 </div>
 </div>
 </div>
@@ -8998,5 +8999,5 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-straddle">ストラドル</dt><dd>同じ行使価格・満期のコールとプットを同時に買う（または売る）オプションの組み合わせ。上がるか下がるかではなく、値動きの大きさそのものに賭ける戦略です。</dd><dt id="gloss-implied-volatility">インプライド・ボラティリティ</dt><dd>オプションの市場価格から逆算される、原資産の将来の変動率。市場参加者の見込みを映す指標です。</dd><dt id="gloss-monte-carlo">モンテカルロ法</dt><dd>乱数で大量の試行を繰り返し、平均や分布から答えを近似する方法。解析的に解けない問題で使います。</dd><dt id="gloss-underlying">原資産</dt><dd>オプションなどのデリバティブが参照する、もとになる資産（株式や指数など）のこと。</dd><dt id="gloss-maturity">満期</dt><dd>オプションや債券などの契約が終わる日。満期までの残り期間が価格に影響します。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-argument">引数</dt><dd>関数に渡す入力値のこと。関数が仕事をするために必要な材料です。</dd><dt id="gloss-random-number">乱数</dt><dd>規則性のない、ランダムな数のこと。シミュレーションで値動きなどを再現するために使います。</dd><dt id="gloss-loop">ループ（繰り返し）</dt><dd>同じ処理を何度も繰り返す仕組み。回数や条件を指定して回します。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="1_basic.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">1. Jupyter 入門</span></a><a class="pager-btn next" href="3_flights.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">3. 例2：ファイルを扱う</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-straddle">ストラドル</dt><dd>同じ行使価格・満期のコールとプットを同時に買う（または売る）オプションの組み合わせ。上がるか下がるかではなく、値動きの大きさそのものに賭ける戦略です。</dd><dt id="gloss-implied-volatility">インプライド・ボラティリティ</dt><dd>オプションの市場価格から逆算される、原資産の将来の変動率。市場参加者の見込みを映す指標です。</dd><dt id="gloss-monte-carlo">モンテカルロ法</dt><dd>乱数で大量の試行を繰り返し、平均や分布から答えを近似する方法。解析的に解けない問題で使います。</dd><dt id="gloss-underlying">原資産</dt><dd>オプションなどのデリバティブが参照する、もとになる資産（株式や指数など）のこと。</dd><dt id="gloss-maturity">満期</dt><dd>オプションや債券などの契約が終わる日。満期までの残り期間が価格に影響します。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-argument">引数</dt><dd>関数に渡す入力値のこと。関数が仕事をするために必要な材料です。</dd><dt id="gloss-random-number">乱数</dt><dd>規則性のない、ランダムな数のこと。シミュレーションで値動きなどを再現するために使います。</dd><dt id="gloss-loop">ループ（繰り返し）</dt><dd>同じ処理を何度も繰り返す仕組み。回数や条件を指定して回します。</dd><dt id="gloss-forward">フォワード</dt><dd>将来の受け渡しを前提に計算した価格のこと。アット・ザ・マネー・フォワードは、行使価格がこの価格と等しい状態を指します。</dd><dt id="gloss-return">リターン（収益率）</dt><dd>価格の変化率のこと。投資の成果をはかる基本の量です。</dd><dt id="gloss-drift">ドリフト</dt><dd>価格の推移に含まれる、一定方向への平均的な動き（上昇・下降の傾向分）のこと。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。numpy がその例です。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="1_basic.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">1. Jupyter 入門</span></a><a class="pager-btn next" href="3_flights.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">3. 例2：ファイルを扱う</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語版（翻訳・増補）です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>

@@ -7940,7 +7940,8 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の英語原文を日本語に翻訳したものです（Apache License 2.0）。コードの動作は原文から変更していません。</p>
+<p><strong>日本語版について</strong>: このノートブックは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> の日本語版です（Apache License 2.0）。原文の翻訳を基礎に、日本語版独自の補足・追加・修正を含む場合があり、独自の部分にはその旨を明記しています。</p>
+<p>この章には日本語版独自の修正があります。原文が使う <a class="term-link" href="#gloss-api">API</a> は終了しているため、原文のコードセルは実行できない記録として残し（実行対象外に設定）、代替の API で動くセルを追加しています。</p>
 </blockquote>
 </div>
 </div>
@@ -7963,41 +7964,11 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>「Web 2.0」で大きく変わったのは、外部向け <a class="term-link" href="#gloss-api">API</a> の整備です。開発者は、公開されたデータの上にツールを組み立てられるようになりました。</p>
+<p>「Web 2.0」で大きく変わったのは、外部向け API の整備です。開発者は、公開されたデータの上にツールを組み立てられるようになりました。</p>
 <p>API の応答は、機械が読みやすい形式で返ってきます。接続の方式も決まっているため、安定してデータを取得できます。</p>
 <p>API は数多く公開されています。利用に開発者キーの登録が必要なものもあります。たとえば <a href="https://research.stlouisfed.org/docs/api/">セントルイス連邦準備銀行の API</a> です。無料で使えるものもあります。たとえば <a href="https://www.coindesk.com/api">Coindesk の API</a> です。API を探すときは、<a href="https://www.programmableweb.com/apis/directory">ProgrammableWeb のディレクトリ</a> が役立ちます。</p>
 <h2 id="%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E5%8A%9B%E3%81%AB%E3%81%AF%E3%80%81%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E8%B2%AC%E4%BB%BB%E3%81%8C%E4%BC%B4%E3%81%84%E3%81%BE%E3%81%99">大いなる力には、大いなる責任が伴います<a class="anchor-link" href="#%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E5%8A%9B%E3%81%AB%E3%81%AF%E3%80%81%E5%A4%A7%E3%81%84%E3%81%AA%E3%82%8B%E8%B2%AC%E4%BB%BB%E3%81%8C%E4%BC%B4%E3%81%84%E3%81%BE%E3%81%99">¶</a></h2><p>プログラムから Web サイトにアクセスするときも、マナーを守って使いましょう。</p>
-<p>ここでは、Coindesk の API でビットコインの日次価格を取得します。Coindesk の API は、他の多くの API と同じく、JSON（JavaScript Object Notation）形式でデータを返します。JSON は、そのまま DataFrame に変換できます。使う<a class="term-link" href="#gloss-library">ライブラリ</a>は <code>json</code> と <code>requests</code> です。</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-<span class="n">coindeskURL</span> <span class="o">=</span> <span class="s1">'https://api.coindesk.com/v1/bpi/historical/close.json?'</span>
-
-<span class="c1"># API から取得</span>
-<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">coindeskURL</span><span class="si">}</span><span class="s1">start=</span><span class="si">{</span><span class="n">start</span><span class="si">:</span><span class="s1">%Y-%m-%d</span><span class="si">}</span><span class="s1">&amp;end=</span><span class="si">{</span><span class="n">end</span><span class="si">:</span><span class="s1">%Y-%m-%d</span><span class="si">}</span><span class="s1">'</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hitting this url:</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-</div>
+<p>ここでは、Coindesk の API で<a class="term-link" href="#gloss-bitcoin">ビットコイン</a>の日次価格を取得します。Coindesk の API は、他の多くの API と同じく、JSON（JavaScript Object Notation）形式でデータを返します。JSON は、そのまま DataFrame に変換できます。使う<a class="term-link" href="#gloss-library">ライブラリ</a>は <code>json</code> と <code>requests</code> です。</p>
 </div>
 </div>
 </div>
@@ -8008,9 +7979,36 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>注意（日本語版独自）</strong>: このあとの原文のコードセルは、CoinDesk の API が終了しているため実行できません。原文の記録として残し、実行対象外（raw セル）に設定してあります。実際に動く取得の流れは、その直後の「修正（日本語版独自）」のセルで代替の API を使ってたどれます。</p>
+</div>
+</div>
+</div>
+</div>import datetime
+import pandas as pd
+import json
+import requests
+
+coindeskURL = 'https://api.coindesk.com/v1/bpi/historical/close.json?'
+
+# API から取得
+start = datetime.date(2019, 1 ,1)
+end = datetime.date(2019, 7, 1)
+
+url = f'{coindeskURL}start={start:%Y-%m-%d}&amp;end={end:%Y-%m-%d}'
+
+print(f'Hitting this url:{url}')
+
+result = requests.get(url)
+result.content
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>修正（日本語版独自）: この API は終了しています</strong></p>
-<p>原文が使う CoinDesk の Bitcoin Price Index API は、提供が終了しました。ドメイン自体が応答しないため、上のセルは現在は実行できません（2026年11月に確認）。原文のセルは記録として残します。</p>
-<p>代わりに、キーなしで使えて、同じ流れ（<a class="term-link" href="#gloss-json">JSON</a> を取得し、DataFrame にして描く）をたどれる例として、為替レートの Frankfurter API を使います。題材はビットコイン価格からドル円レートに変わりますが、この章の要点は JSON の扱い方なので、読み替えで対応できます。</p>
+<p>原文が使う CoinDesk の Bitcoin Price Index API は、提供が終了しました。<a class="term-link" href="#gloss-domain">ドメイン</a>自体が応答しないため、上のセルは現在は実行できません（2026年11月に確認）。原文のセルは記録として残します。</p>
+<p>代わりに、キーなしで使えて、同じ流れ（JSON を取得し、DataFrame にして描く）をたどれる例として、<a class="term-link" href="#gloss-fx-rate">為替レート</a>の Frankfurter API を使います。題材はビットコイン価格からドル円レートに変わりますが、この章の要点は JSON の扱い方なので、読み替えで対応できます。</p>
 </div>
 </div>
 </div>
@@ -8025,7 +8023,8 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">frankfurter_url</span> <span class="o">=</span> <span class="s2">"https://api.frankfurter.dev/v1/2019-01-01..2019-01-31?base=USD&amp;symbols=JPY"</span>
-<span class="n">result_fx</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">frankfurter_url</span><span class="p">)</span>
+<span class="n">result_fx</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">frankfurter_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">result_fx</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 <span class="n">result_fx</span>
 </pre></div>
 </div>
@@ -8331,26 +8330,12 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Python で JSON の中身を見てみます。</p>
+<p>Python で <a class="term-link" href="#gloss-json">JSON</a> の中身を見てみます。</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">jsondata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-<span class="n">jsondata</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div>jsondata = json.loads(result.content)
+jsondata
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8362,53 +8347,11 @@ a.term-link { color: inherit; text-decoration: underline dotted var(--gold) 1.5p
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># disclaimer や time も一緒に読み込まれる</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-<span class="n">data</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'Bitcoin Price Index'</span><span class="p">:</span> <span class="n">jsondata</span><span class="p">[</span><span class="s1">'bpi'</span><span class="p">]})</span>
-<span class="n">data</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div># disclaimer や time も一緒に読み込まれる
+data = pd.read_json(result.content)
+datadata = pd.DataFrame({'Bitcoin Price Index': jsondata['bpi']})
+data%matplotlib inline
+data.plot()
 </main>
-<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-api">API</dt><dd>プログラム同士がデータをやり取りするための窓口。決まった形式でリクエストを送ると、機械が読みやすい形でデータが返ってきます。</dd><dt id="gloss-json">JSON</dt><dd>データを表すための軽いテキスト形式。キーと値の組で構造を表し、Web API の応答で広く使われます。</dd><dt id="gloss-endpoint">エンドポイント</dt><dd>API の個々の窓口となる URL のこと。欲しいデータごとに場所が決まっています。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。requests や pandas がその例です。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="3_flights.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">3. 例2：ファイルを扱う</span></a><a class="pager-btn next" href="5_website.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">5. Web サイトからデータを取得する</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
+<section class="glossary"><h2>用語解説</h2><p class="gloss-note">この章に出てくる用語の解説です（日本語版独自の付録）。本文中の用語をクリックすると、ここに飛びます。</p><dl><dt id="gloss-api">API</dt><dd>プログラム同士がデータをやり取りするための窓口。決まった形式でリクエストを送ると、機械が読みやすい形でデータが返ってきます。</dd><dt id="gloss-json">JSON</dt><dd>データを表すための軽いテキスト形式。キーと値の組で構造を表し、Web API の応答で広く使われます。</dd><dt id="gloss-endpoint">エンドポイント</dt><dd>API の個々の窓口となる URL のこと。欲しいデータごとに場所が決まっています。</dd><dt id="gloss-function">関数</dt><dd>処理をひとまとめにして名前をつけたもの。入力を渡すと、決まった処理をして結果を返します。</dd><dt id="gloss-library">ライブラリ</dt><dd>よく使う機能をまとめて、他のプログラムから呼び出せるようにした部品集。requests や pandas がその例です。</dd><dt id="gloss-bitcoin">ビットコイン</dt><dd>代表的な暗号資産（仮想通貨）。この章の原文が、価格データの取得例に使っています。</dd><dt id="gloss-fx-rate">為替レート</dt><dd>2つの通貨の交換比率。USD/JPY なら、1ドルが何円かを示します。</dd><dt id="gloss-domain">ドメイン</dt><dd>インターネット上の住所にあたる名前（例: api.frankfurter.dev）。DNS という仕組みで、実際の接続先に変換されます。</dd></dl></section></main><div class="pager"><a class="pager-btn prev" href="3_flights.html"><span class="pager-label">← 前のノートブック</span><span class="pager-title">3. 例2：ファイルを扱う</span></a><a class="pager-btn next" href="5_website.html"><span class="pager-label">次のノートブック →</span><span class="pager-title">5. Web サイトからデータを取得する</span></a></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語版（翻訳・増補）です。<br>翻訳・公開: 霞ヶ関京<br>連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a><br><a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）<br><a href="https://www.youtube.com/@KASUMI_MOF">YouTube @KASUMI_MOF</a></footer></body>
 </html>
