@@ -4,6 +4,9 @@
 **この Python 研修は、JPMorgan のビジネスアナリストとトレーダー、および一部のクライアントを対象としています。**
 
 > **日本語版について**: このリポジトリは、[jpmorganchase/python-training](https://github.com/jpmorganchase/python-training) を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。
+>
+> 日本語版の翻訳・公開： 霞ヶ関京
+> 連絡先： GitHub [@yanikasumin](https://github.com/yanikasumin) / X（旧 Twitter）[@lieberalism](https://x.com/lieberalism)（アカウント凍結中）
 
 ![GitHub](https://img.shields.io/github/license/jpmorganchase/python-training?style=flat-square)
 [![Contact](https://img.shields.io/badge/Contact-Email-lightgrey?style=flat-square)](mailto:open_source@jpmorgan.com)
