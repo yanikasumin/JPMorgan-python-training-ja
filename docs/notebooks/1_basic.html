@@ -7795,45 +7795,76 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration -->
 <style>
+:root {
+  --navy: #0a2540; --navy2: #103a5c; --bronze: #b08d57;
+  --ink: #1c2733; --muted: #5b6b7a; --line: #e2e6ea; --bg: #edf0f3;
+}
 html { -webkit-text-size-adjust: 100%; }
-body { overflow-x: hidden; }
-.jp-Notebook, #notebook-container, main.site-main {
-  width: auto !important; max-width: 920px !important;
-  margin-left: auto !important; margin-right: auto !important;
-  padding-left: 14px; padding-right: 14px; box-sizing: border-box;
+body.jp-Notebook, body.site {
+  margin: 0 !important; background: var(--bg); color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", -apple-system, "Segoe UI", sans-serif;
 }
 img, svg, video { max-width: 100% !important; height: auto; }
 pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-table { display: block; overflow-x: auto; max-width: 100%; }
-.site-nav {
-  max-width: 920px; margin: 0 auto; padding: 12px 14px 4px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+
+/* header band */
+.site-nav { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; }
+.site-nav .inner { max-width: 940px; margin: 0 auto; padding: 18px 20px 14px; }
+.site-nav .site-title { font-size: 19px; font-weight: 700; margin: 0 0 2px; letter-spacing: .02em; }
+.site-nav .site-title a { color: #fff; text-decoration: none; }
+.site-nav .site-sub { font-size: 12px; color: rgba(255,255,255,.72); margin: 0 0 12px; }
+.site-nav ol { display: flex; flex-wrap: wrap; gap: 6px 8px; list-style: none; margin: 0; padding: 0; }
+.site-nav ol a {
+  display: inline-block; color: rgba(255,255,255,.88); text-decoration: none;
+  font-size: 12.5px; padding: 4px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px;
 }
-.site-nav .site-title { font-size: 18px; font-weight: 700; margin: 4px 0 8px; }
-.site-nav .site-title a { color: #1a56db; text-decoration: none; }
-.site-nav ol {
-  display: flex; flex-wrap: wrap; gap: 6px 14px;
-  list-style: none; margin: 0 0 8px; padding: 0; font-size: 13px;
+.site-nav ol a:hover { background: rgba(255,255,255,.12); }
+.site-nav ol a.current { background: #fff; color: var(--navy); font-weight: 700; border-color: #fff; }
+
+/* content sheet */
+.page-sheet {
+  max-width: 940px; margin: 22px auto 8px; background: #fff;
+  border-radius: 12px; box-shadow: 0 1px 3px rgba(10,37,64,.10), 0 8px 24px rgba(10,37,64,.06);
+  padding: 30px 38px 36px; box-sizing: border-box;
 }
-.site-nav ol a { color: #1a56db; text-decoration: none; }
-.site-nav ol a.current { font-weight: 700; color: #111; }
-.pager {
-  max-width: 920px; margin: 24px auto 40px; padding: 0 14px;
-  display: flex; justify-content: space-between; gap: 12px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px;
+.jp-Cell { margin: 0 0 6px !important; }
+.jp-RenderedMarkdown { font-size: 15.5px; line-height: 1.85; }
+.jp-RenderedMarkdown h1 { font-size: 26px; line-height: 1.4; margin: 10px 0 18px; padding-bottom: 10px; border-bottom: 3px solid var(--bronze); }
+.jp-RenderedMarkdown h2 { font-size: 20px; margin: 30px 0 10px; padding-left: 10px; border-left: 4px solid var(--navy); line-height: 1.5; }
+.jp-RenderedMarkdown h3 { font-size: 16.5px; margin: 22px 0 8px; }
+.jp-RenderedMarkdown a { color: #0f4c9c; }
+.jp-RenderedMarkdown blockquote {
+  margin: 14px 0; padding: 10px 16px; background: #f7f3ec;
+  border-left: 4px solid var(--bronze); color: #4a4234; border-radius: 0 8px 8px 0;
 }
-.pager a { color: #1a56db; text-decoration: none; }
-footer.site-foot {
-  max-width: 920px; margin: 0 auto 32px; padding: 0 14px; color: #666; font-size: 12px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+.jp-RenderedMarkdown table { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.jp-RenderedMarkdown th, .jp-RenderedMarkdown td { border: 1px solid var(--line); padding: 6px 10px; }
+.jp-RenderedMarkdown th { background: #f2f5f8; }
+.jp-RenderedMarkdown tr:nth-child(even) td { background: #fafbfc; }
+.jp-InputArea-editor { background: #f6f8fa !important; border: 1px solid var(--line); border-radius: 8px; }
+.jp-InputPrompt, .jp-OutputPrompt { color: #9aa4ae !important; font-size: 11.5px; }
+.jp-OutputArea-output pre { font-size: 13px; }
+
+/* pager + footer */
+.pager { max-width: 940px; margin: 18px auto 6px; padding: 0 4px; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.pager a {
+  color: var(--navy); text-decoration: none; background: #fff; border: 1px solid var(--line);
+  padding: 10px 16px; border-radius: 10px; box-shadow: 0 1px 2px rgba(10,37,64,.06);
 }
+.pager a:hover { border-color: var(--bronze); }
+footer.site-foot { max-width: 940px; margin: 14px auto 34px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
+footer.site-foot a { color: #0f4c9c; text-decoration: none; }
+
 @media (max-width: 700px) {
-  .jp-Notebook, #notebook-container, main.site-main { padding-left: 10px; padding-right: 10px; }
-  .site-nav ol { font-size: 12px; gap: 4px 10px; }
+  .page-sheet { margin: 0 auto; border-radius: 0; padding: 20px 15px 26px; box-shadow: none; }
+  .site-nav .inner { padding: 14px 14px 12px; }
+  .jp-RenderedMarkdown { font-size: 14.5px; }
+  .jp-RenderedMarkdown h1 { font-size: 22px; }
+  .pager { padding: 0 10px; }
 }
 </style>
 </head>
-<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><nav class="site-nav"><p class="site-title"><a href="../index.html">Python Training 日本語版</a></p><ol><li><a href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a class="current" href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav>
+<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><header class="site-nav"><div class="inner"><p class="site-title"><a href="../index.html">Python Training 日本語版</a></p><p class="site-sub">jpmorganchase/python-training の日本語翻訳版 ― JPMorgan の Python 研修教材</p><ol><li><a href="../notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a class="current" href="../notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="../notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="../notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="../notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="../notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="../notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="../notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="../notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="../notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></div></header><main class="page-sheet">
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8002,5 +8033,5 @@ footer.site-foot {
 </div>
 </div>
 </main>
-<div class="pager"><span><a href="0_best_practices.html">← 0. 科学計算のためのベストプラクティス</a></span><span><a href="2_straddle.html">2. 例1：ストラドルの価格計算 →</a></span></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京 ― 連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</footer></body>
+</main><div class="pager"><span><a href="0_best_practices.html">← 0. 科学計算のためのベストプラクティス</a></span><span><a href="2_straddle.html">2. 例1：ストラドルの価格計算 →</a></span></div><footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京 ― 連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</footer></body>
 </html>

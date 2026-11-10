@@ -6,55 +6,141 @@
 <title>Python Training 日本語版</title>
 
 <style>
+:root {
+  --navy: #0a2540; --navy2: #103a5c; --bronze: #b08d57;
+  --ink: #1c2733; --muted: #5b6b7a; --line: #e2e6ea; --bg: #edf0f3;
+}
 html { -webkit-text-size-adjust: 100%; }
-body { overflow-x: hidden; }
-.jp-Notebook, #notebook-container, main.site-main {
-  width: auto !important; max-width: 920px !important;
-  margin-left: auto !important; margin-right: auto !important;
-  padding-left: 14px; padding-right: 14px; box-sizing: border-box;
+body.jp-Notebook, body.site {
+  margin: 0 !important; background: var(--bg); color: var(--ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", -apple-system, "Segoe UI", sans-serif;
 }
 img, svg, video { max-width: 100% !important; height: auto; }
 pre { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-table { display: block; overflow-x: auto; max-width: 100%; }
-.site-nav {
-  max-width: 920px; margin: 0 auto; padding: 12px 14px 4px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+
+/* header band */
+.site-nav { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; }
+.site-nav .inner { max-width: 940px; margin: 0 auto; padding: 18px 20px 14px; }
+.site-nav .site-title { font-size: 19px; font-weight: 700; margin: 0 0 2px; letter-spacing: .02em; }
+.site-nav .site-title a { color: #fff; text-decoration: none; }
+.site-nav .site-sub { font-size: 12px; color: rgba(255,255,255,.72); margin: 0 0 12px; }
+.site-nav ol { display: flex; flex-wrap: wrap; gap: 6px 8px; list-style: none; margin: 0; padding: 0; }
+.site-nav ol a {
+  display: inline-block; color: rgba(255,255,255,.88); text-decoration: none;
+  font-size: 12.5px; padding: 4px 10px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px;
 }
-.site-nav .site-title { font-size: 18px; font-weight: 700; margin: 4px 0 8px; }
-.site-nav .site-title a { color: #1a56db; text-decoration: none; }
-.site-nav ol {
-  display: flex; flex-wrap: wrap; gap: 6px 14px;
-  list-style: none; margin: 0 0 8px; padding: 0; font-size: 13px;
+.site-nav ol a:hover { background: rgba(255,255,255,.12); }
+.site-nav ol a.current { background: #fff; color: var(--navy); font-weight: 700; border-color: #fff; }
+
+/* content sheet */
+.page-sheet {
+  max-width: 940px; margin: 22px auto 8px; background: #fff;
+  border-radius: 12px; box-shadow: 0 1px 3px rgba(10,37,64,.10), 0 8px 24px rgba(10,37,64,.06);
+  padding: 30px 38px 36px; box-sizing: border-box;
 }
-.site-nav ol a { color: #1a56db; text-decoration: none; }
-.site-nav ol a.current { font-weight: 700; color: #111; }
-.pager {
-  max-width: 920px; margin: 24px auto 40px; padding: 0 14px;
-  display: flex; justify-content: space-between; gap: 12px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif; font-size: 14px;
+.jp-Cell { margin: 0 0 6px !important; }
+.jp-RenderedMarkdown { font-size: 15.5px; line-height: 1.85; }
+.jp-RenderedMarkdown h1 { font-size: 26px; line-height: 1.4; margin: 10px 0 18px; padding-bottom: 10px; border-bottom: 3px solid var(--bronze); }
+.jp-RenderedMarkdown h2 { font-size: 20px; margin: 30px 0 10px; padding-left: 10px; border-left: 4px solid var(--navy); line-height: 1.5; }
+.jp-RenderedMarkdown h3 { font-size: 16.5px; margin: 22px 0 8px; }
+.jp-RenderedMarkdown a { color: #0f4c9c; }
+.jp-RenderedMarkdown blockquote {
+  margin: 14px 0; padding: 10px 16px; background: #f7f3ec;
+  border-left: 4px solid var(--bronze); color: #4a4234; border-radius: 0 8px 8px 0;
 }
-.pager a { color: #1a56db; text-decoration: none; }
-footer.site-foot {
-  max-width: 920px; margin: 0 auto 32px; padding: 0 14px; color: #666; font-size: 12px;
-  font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+.jp-RenderedMarkdown table { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.jp-RenderedMarkdown th, .jp-RenderedMarkdown td { border: 1px solid var(--line); padding: 6px 10px; }
+.jp-RenderedMarkdown th { background: #f2f5f8; }
+.jp-RenderedMarkdown tr:nth-child(even) td { background: #fafbfc; }
+.jp-InputArea-editor { background: #f6f8fa !important; border: 1px solid var(--line); border-radius: 8px; }
+.jp-InputPrompt, .jp-OutputPrompt { color: #9aa4ae !important; font-size: 11.5px; }
+.jp-OutputArea-output pre { font-size: 13px; }
+
+/* pager + footer */
+.pager { max-width: 940px; margin: 18px auto 6px; padding: 0 4px; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.pager a {
+  color: var(--navy); text-decoration: none; background: #fff; border: 1px solid var(--line);
+  padding: 10px 16px; border-radius: 10px; box-shadow: 0 1px 2px rgba(10,37,64,.06);
 }
+.pager a:hover { border-color: var(--bronze); }
+footer.site-foot { max-width: 940px; margin: 14px auto 34px; padding: 0 20px; color: var(--muted); font-size: 12.5px; line-height: 1.9; text-align: center; }
+footer.site-foot a { color: #0f4c9c; text-decoration: none; }
+
 @media (max-width: 700px) {
-  .jp-Notebook, #notebook-container, main.site-main { padding-left: 10px; padding-right: 10px; }
-  .site-nav ol { font-size: 12px; gap: 4px 10px; }
+  .page-sheet { margin: 0 auto; border-radius: 0; padding: 20px 15px 26px; box-shadow: none; }
+  .site-nav .inner { padding: 14px 14px 12px; }
+  .jp-RenderedMarkdown { font-size: 14.5px; }
+  .jp-RenderedMarkdown h1 { font-size: 22px; }
+  .pager { padding: 0 10px; }
 }
 </style>
 
+
 <style>
-main.site-main { font-family: -apple-system, "Hiragino Kaku Gothic ProN", sans-serif; line-height: 1.8; }
-main.site-main pre { background: #f5f5f5; padding: 10px; }
-main.site-main code { word-break: break-all; }
+.hero { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; }
+.hero .inner { max-width: 940px; margin: 0 auto; padding: 44px 20px 38px; }
+.hero h1 { font-size: 32px; margin: 0 0 10px; letter-spacing: .02em; }
+.hero .lead { font-size: 15px; line-height: 1.9; color: rgba(255,255,255,.86); margin: 0 0 18px; max-width: 640px; }
+.hero .byline { font-size: 13px; color: rgba(255,255,255,.75); margin: 0 0 20px; }
+.hero .byline a { color: #fff; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero .actions a {
+  display: inline-block; padding: 9px 18px; border-radius: 999px; font-size: 13.5px;
+  text-decoration: none; border: 1px solid rgba(255,255,255,.45); color: #fff;
+}
+.hero .actions a.primary { background: var(--bronze); border-color: var(--bronze); font-weight: 700; }
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+.section-title { font-size: 19px; margin: 30px 0 14px; padding-left: 10px; border-left: 4px solid var(--navy); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card {
+  display: flex; align-items: flex-start; gap: 14px; background: #fff; border: 1px solid var(--line);
+  border-radius: 12px; padding: 16px 18px; text-decoration: none; color: var(--ink);
+  box-shadow: 0 1px 2px rgba(10,37,64,.05); transition: transform .12s ease, border-color .12s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--bronze); }
+.card-num {
+  flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+}
+.card-body { display: flex; flex-direction: column; gap: 4px; }
+.card-title { font-weight: 700; font-size: 15px; }
+.card-desc { font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+.card-arrow { margin-left: auto; color: var(--bronze); font-weight: 700; }
+.about {
+  background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 26px 18px;
+  font-size: 14px; line-height: 1.9; margin-bottom: 8px;
+}
+.about blockquote { margin: 14px 0; padding: 10px 16px; background: #f7f3ec; border-left: 4px solid var(--bronze); border-radius: 0 8px 8px 0; }
+.about a { color: #0f4c9c; }
+.about img { vertical-align: middle; }
+@media (max-width: 700px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 25px; }
+  .hero .inner { padding: 30px 16px 26px; }
+  .wrap { padding: 0 12px; }
+  .about { padding: 4px 16px 12px; }
+}
 </style>
+
 </head>
-<body>
-<nav class="site-nav"><p class="site-title"><a href="index.html">Python Training 日本語版</a></p><ol><li><a href="notebooks/0_best_practices.html">0. 科学計算のためのベストプラクティス</a></li><li><a href="notebooks/1_basic.html">1. Jupyter 入門</a></li><li><a href="notebooks/2_straddle.html">2. 例1：ストラドルの価格計算</a></li><li><a href="notebooks/3_flights.html">3. 例2：ファイルを扱う</a></li><li><a href="notebooks/4_webapi.html">4. Web API からのデータ取得</a></li><li><a href="notebooks/5_website.html">5. Web サイトからデータを取得する</a></li><li><a href="notebooks/6_financial_data.html">6. 6_financial_data</a></li><li><a href="notebooks/7_advanced_plotting.html">7. グラフ描画の応用：matplotlib の先へ</a></li><li><a href="notebooks/8_altman_z_double_prime.html">8. 金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</a></li><li><a href="notebooks/9_3d_plotting.html">9. 9_3d_plotting</a></li></ol></nav>
-<main class="site-main">
-<p><img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/J_P_Morgan_Logo_2008_1.svg/1280px-J_P_Morgan_Logo_2008_1.svg.png"></p>
-<h1>Python Training 日本語版（Python 研修）</h1>
+<body class="site">
+<section class="hero"><div class="inner">
+<h1>Python Training 日本語版</h1>
+<p class="lead">JPMorgan のビジネスアナリスト・トレーダー向け Python 研修教材「python-training」の日本語翻訳版。数値計算とデータ可視化を、実例を通して学ぶ入門コースです。</p>
+<p class="byline">翻訳・公開: 霞ヶ関京 ― <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</p>
+<p class="actions">
+<a class="primary" href="notebooks/0_best_practices.html">最初から読む</a>
+<a href="https://github.com/yanikasumin/JPMorgan-python-training-ja">GitHub リポジトリ</a>
+<a href="https://mybinder.org/v2/gh/yanikasumin/JPMorgan-python-training-ja/main?urlpath=lab">Binder で実行する</a>
+</p>
+</div></section>
+<div class="wrap">
+<h2 class="section-title">ノートブック一覧</h2>
+<div class="cards">
+<a class="card" href="notebooks/0_best_practices.html"><span class="card-num">0</span><span class="card-body"><span class="card-title">科学計算のためのベストプラクティス</span><span class="card-desc">開発環境の整え方と、読みやすいコードの作法。Git、テスト、スタイルの基本を押さえる。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/1_basic.html"><span class="card-num">1</span><span class="card-body"><span class="card-title">Jupyter 入門</span><span class="card-desc">Python の基礎。データ型、制御構文、関数など、最初に身につける文法まわり。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/2_straddle.html"><span class="card-num">2</span><span class="card-body"><span class="card-title">例1：ストラドルの価格計算</span><span class="card-desc">オプションのストラドル価格を近似式で計算する。数式とコードを対応づける練習。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/3_flights.html"><span class="card-num">3</span><span class="card-body"><span class="card-title">例2：ファイルを扱う</span><span class="card-desc">OpenFlights の路線データを読み込み、空港ペアごとの集計や可視化を行う。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/4_webapi.html"><span class="card-num">4</span><span class="card-body"><span class="card-title">Web API からのデータ取得</span><span class="card-desc">Web API を呼び出してデータを取得し、扱いやすい形に整える。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/5_website.html"><span class="card-num">5</span><span class="card-body"><span class="card-title">Web サイトからデータを取得する</span><span class="card-desc">取得したデータを Web サイトとして公開するまでの流れ。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/6_financial_data.html"><span class="card-num">6</span><span class="card-body"><span class="card-title">6_financial_data</span><span class="card-desc">金融データを扱う章。原典では下書きのみで、本文は空。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/7_advanced_plotting.html"><span class="card-num">7</span><span class="card-body"><span class="card-title">グラフ描画の応用：matplotlib の先へ</span><span class="card-desc">グラフ描画の応用。見せ方を工夫して分析結果を伝える。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/8_altman_z_double_prime.html"><span class="card-num">8</span><span class="card-body"><span class="card-title">金融データを使う例 #1：アルトマンZスコア（ダブルプライム）の計算</span><span class="card-desc">企業の信用リスクを測るアルトマン Z ダブルプライムモデルを実装する。</span></span><span class="card-arrow">→</span></a><a class="card" href="notebooks/9_3d_plotting.html"><span class="card-num">9</span><span class="card-body"><span class="card-title">9_3d_plotting</span><span class="card-desc">3 次元プロットによるデータの可視化。</span></span><span class="card-arrow">→</span></a>
+</div>
+<h2 class="section-title">このサイトについて</h2>
+<div class="about">
 <p><strong>この Python 研修は、JPMorgan のビジネスアナリストとトレーダー、および一部のクライアントを対象としています。</strong></p>
 <blockquote>
 <p><strong>日本語版について</strong>: このリポジトリは、<a href="https://github.com/jpmorganchase/python-training">jpmorganchase/python-training</a> を日本語に翻訳したフォークです。本文・ノートブック・コメントを日本語化しています。ライセンスは原典と同じ Apache 2.0 です。</p>
@@ -77,7 +163,8 @@ main.site-main code { word-break: break-all; }
 <p>このリポジトリで IEX Cloud、Alpha Vantage、その他のサードパーティのプラットフォーム、製品、データ、API プロバイダに触れているのは、説明と教育のためだけです。J.P. Morgan Chase &amp; Co. やその関連会社が、その製品や企業を推奨していると受け取らないでください。</p>
 <h2>ライセンス</h2>
 <p>このソフトウェアは Apache 2.0 ライセンスで提供しています。詳しくは <a href="LICENSE">LICENSE</a> ファイルを見てください。</p>
-</main>
+</div>
+</div>
 <footer class="site-foot">原典: jpmorganchase/python-training（Apache License 2.0）。このサイトはその日本語翻訳版です。<br>翻訳・公開: 霞ヶ関京 ― 連絡先: <a href="https://github.com/yanikasumin">GitHub @yanikasumin</a> / <a href="https://x.com/lieberalism">X @lieberalism</a>（アカウント凍結中）</footer>
 </body>
 </html>
